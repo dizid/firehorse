@@ -10,12 +10,16 @@ import { useAnalytics } from '@/composables/useAnalytics'
 const { trackNewsletterSignup } = useAnalytics()
 const newsletterEmail = ref('')
 const newsletterSubmitted = ref(false)
+const newsletterError = ref('')
 
 function handleNewsletterSubmit() {
-  if (newsletterEmail.value) {
-    trackNewsletterSignup()
-    newsletterSubmitted.value = true
+  newsletterError.value = ''
+  if (!newsletterEmail.value) {
+    newsletterError.value = 'Please enter your email address'
+    return
   }
+  trackNewsletterSignup()
+  newsletterSubmitted.value = true
 }
 
 interface Trait {
@@ -221,6 +225,9 @@ const fireHorseYears = [
                 </button>
               </div>
 
+              <p v-if="newsletterError" class="text-sm text-red-400 mt-3 text-center">
+                {{ newsletterError }}
+              </p>
               <p class="text-xs text-ash-500 mt-4 text-center">
                 We respect your privacy. Unsubscribe anytime.
               </p>

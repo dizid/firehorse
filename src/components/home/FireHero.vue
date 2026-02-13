@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import FireText from '@/components/ui/FireText.vue'
 import FireButton from '@/components/ui/FireButton.vue'
+
+const router = useRouter()
 
 interface Particle {
   x: number
@@ -176,7 +179,7 @@ function scrollToFeatures() {
           <FireButton size="lg" @click="scrollToFeatures">
             Explore the Legend
           </FireButton>
-          <FireButton variant="secondary" size="lg">
+          <FireButton variant="secondary" size="lg" @click="router.push('/compatibility')">
             Check Your Sign
           </FireButton>
         </div>

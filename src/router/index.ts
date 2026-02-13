@@ -74,4 +74,14 @@ const router = createRouter({
   ],
 })
 
+// Handle stale chunk errors after new deploys (old HTML references old chunk filenames)
+router.onError((error, to) => {
+  if (
+    error.message.includes('Failed to fetch dynamically imported module') ||
+    error.message.includes('Importing a module script failed')
+  ) {
+    window.location.href = to.fullPath
+  }
+})
+
 export default router
