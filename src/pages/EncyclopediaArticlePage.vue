@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import GlassCard from '@/components/ui/GlassCard.vue'
 import { getArticleBySlug, getRelatedArticles } from '@/lib/encyclopedia-data'
 import { renderMarkdown } from '@/lib/markdown'
+import { useAnalytics } from '@/composables/useAnalytics'
+
+const { trackEncyclopediaView } = useAnalytics()
 
 const route = useRoute()
 
@@ -29,6 +32,13 @@ const categoryColors = {
   famous: 'text-yellow-300',
   myths: 'text-rose-300',
 }
+
+// Track article view on mount
+onMounted(() => {
+  if (article.value) {
+    trackEncyclopediaView(article.value.slug, article.value.category)
+  }
+})
 </script>
 
 <template>

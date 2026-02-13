@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import GlassCard from '@/components/ui/GlassCard.vue'
+import { useAnalytics } from '@/composables/useAnalytics'
 import type { BlogPost } from '@/types'
 
+const { trackBlogRead } = useAnalytics()
 const route = useRoute()
 const post = ref<BlogPost | null>(null)
 const loading = ref(true)
@@ -31,6 +33,13 @@ async function fetchPost() {
     loading.value = false
   }
 }
+
+// Track blog post view when loaded
+watch(post, (newPost) => {
+  if (newPost) {
+    trackBlogRead(newPost.slug, newPost.title)
+  }
+})
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString('en-US', {

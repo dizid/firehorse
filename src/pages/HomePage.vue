@@ -1,9 +1,22 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import FireHero from '@/components/home/FireHero.vue'
 import CountdownTimer from '@/components/home/CountdownTimer.vue'
 import FeatureCards from '@/components/home/FeatureCards.vue'
 import GlassCard from '@/components/ui/GlassCard.vue'
 import FireText from '@/components/ui/FireText.vue'
+import { useAnalytics } from '@/composables/useAnalytics'
+
+const { trackNewsletterSignup } = useAnalytics()
+const newsletterEmail = ref('')
+const newsletterSubmitted = ref(false)
+
+function handleNewsletterSubmit() {
+  if (newsletterEmail.value) {
+    trackNewsletterSignup()
+    newsletterSubmitted.value = true
+  }
+}
 
 interface Trait {
   icon: string
@@ -155,6 +168,80 @@ const fireHorseYears = [
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup Section -->
+    <section class="py-20 px-4 bg-ash-950">
+      <div class="container mx-auto max-w-4xl">
+        <GlassCard :glow="true" padding="p-10 md:p-12">
+          <div class="text-center mb-8">
+            <FireText tag="h2" class="text-3xl sm:text-4xl md:text-5xl mb-4">
+              Stay in the Loop
+            </FireText>
+            <p class="text-lg text-ash-300 max-w-2xl mx-auto leading-relaxed">
+              Join our newsletter for zodiac insights, compatibility tips, and 2026 Fire Horse updates delivered straight to your inbox.
+            </p>
+          </div>
+
+          <!-- Newsletter Form -->
+          <div v-if="!newsletterSubmitted">
+            <form
+              name="newsletter"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              @submit.prevent="handleNewsletterSubmit"
+              class="max-w-md mx-auto"
+            >
+              <input type="hidden" name="form-name" value="newsletter" />
+
+              <!-- Honeypot field -->
+              <p class="hidden">
+                <label>
+                  Don't fill this out if you're human:
+                  <input name="bot-field" />
+                </label>
+              </p>
+
+              <div class="flex flex-col sm:flex-row gap-3">
+                <input
+                  v-model="newsletterEmail"
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                  class="flex-1 px-6 py-4 bg-ash-900/50 border border-ash-700 rounded-xl text-ash-100 placeholder-ash-500 focus:border-fire-500 focus:ring-2 focus:ring-fire-500/20 outline-none transition-all duration-300"
+                />
+                <button
+                  type="submit"
+                  class="btn-fire px-8 py-4 rounded-xl font-semibold whitespace-nowrap"
+                >
+                  Subscribe
+                </button>
+              </div>
+
+              <p class="text-xs text-ash-500 mt-4 text-center">
+                We respect your privacy. Unsubscribe anytime.
+              </p>
+            </form>
+          </div>
+
+          <!-- Success State -->
+          <div v-else class="text-center py-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-fire-500/20 rounded-full mb-4">
+              <svg class="w-8 h-8 text-fire-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-display font-bold text-fire-400 mb-2">
+              Welcome to the Fire Horse Family!
+            </h3>
+            <p class="text-ash-300">
+              Check your inbox for a confirmation email.
+            </p>
+          </div>
+        </GlassCard>
       </div>
     </section>
 

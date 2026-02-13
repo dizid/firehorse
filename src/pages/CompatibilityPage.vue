@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import GlassCard from '@/components/ui/GlassCard.vue'
 import ZodiacSelector from '@/components/compatibility/ZodiacSelector.vue'
 import ElementSelector from '@/components/compatibility/ElementSelector.vue'
 import CompatibilityResult from '@/components/compatibility/CompatibilityResult.vue'
 import { calculateCompatibility } from '@/lib/zodiac-data'
+import { useAnalytics } from '@/composables/useAnalytics'
 import type { ZodiacAnimal, ZodiacElement, CompatibilityResult as CompatibilityResultType } from '@/types'
+
+const { trackCompatibilityComplete } = useAnalytics()
 
 const selectedAnimal = ref<ZodiacAnimal | null>(null)
 const selectedElement = ref<ZodiacElement | null>(null)
@@ -21,9 +24,22 @@ const compatibilityResult = computed<CompatibilityResultType | null>(() => {
   return calculateCompatibility(selectedAnimal.value, selectedElement.value)
 })
 
+// Track when compatibility result is shown
+watch(compatibilityResult, (result) => {
+  if (result && selectedAnimal.value && selectedElement.value) {
+    trackCompatibilityComplete(selectedAnimal.value, selectedElement.value, result.score)
+  }
+})
+
 function reset() {
   selectedAnimal.value = null
   selectedElement.value = null
+}
+
+// Handle birthdate skip — sets both animal and element at once
+function handleSkipToResult(animal: ZodiacAnimal, element: ZodiacElement) {
+  selectedAnimal.value = animal
+  selectedElement.value = element
 }
 </script>
 
@@ -120,7 +136,7 @@ function reset() {
     <GlassCard :glow="false" class="max-w-4xl mx-auto">
       <!-- Step 1: Animal Selection -->
       <div v-if="currentStep === 1">
-        <ZodiacSelector v-model="selectedAnimal" />
+        <ZodiacSelector v-model="selectedAnimal" @skipToResult="handleSkipToResult" />
       </div>
 
       <!-- Step 2: Element Selection -->

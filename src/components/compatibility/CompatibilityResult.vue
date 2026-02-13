@@ -2,7 +2,10 @@
 import { ref, onMounted, computed } from 'vue'
 import GlassCard from '@/components/ui/GlassCard.vue'
 import FireButton from '@/components/ui/FireButton.vue'
+import { useAnalytics } from '@/composables/useAnalytics'
 import type { CompatibilityResult } from '@/types'
+
+const { trackShareResult } = useAnalytics()
 
 const props = defineProps<{
   result: CompatibilityResult
@@ -13,6 +16,7 @@ const emit = defineEmits<{
 }>()
 
 const animatedScore = ref(0)
+const copySuccess = ref(false)
 const circumference = 2 * Math.PI * 70 // radius = 70
 
 const strokeDashoffset = computed(() => {
@@ -45,24 +49,25 @@ onMounted(() => {
   }, stepDuration)
 })
 
-async function shareResult() {
-  const text = `My compatibility with Fire Horse: ${props.result.score}%! ${props.result.summary}`
-
-  if (navigator.share) {
-    try {
-      await navigator.share({ text })
-    } catch (err) {
-      copyToClipboard(text)
-    }
-  } else {
-    copyToClipboard(text)
-  }
+function shareToTwitter() {
+  const text = `I got ${props.result.score}% compatibility with the Fire Horse! 🔥 Check yours at firehorse.info/compatibility #FireHorse2026`
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
+  window.open(twitterUrl, '_blank')
+  trackShareResult('twitter', props.result.score)
 }
 
-function copyToClipboard(text: string) {
-  navigator.clipboard.writeText(text).then(() => {
-    alert('Result copied to clipboard!')
-  })
+async function copyLink() {
+  const url = window.location.origin + '/compatibility'
+  try {
+    await navigator.clipboard.writeText(url)
+    copySuccess.value = true
+    trackShareResult('copy', props.result.score)
+    setTimeout(() => {
+      copySuccess.value = false
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy link:', err)
+  }
 }
 </script>
 
@@ -171,11 +176,63 @@ function copyToClipboard(text: string) {
       </GlassCard>
     </div>
 
+    <!-- Share Your Result Section -->
+    <GlassCard class="mb-6 bg-fire-500/5 border-fire-500/20">
+      <h3 class="font-display text-xl font-bold text-fire-300 mb-4 text-center">
+        Share Your Result
+      </h3>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <!-- Twitter Share Button -->
+        <button
+          @click="shareToTwitter"
+          class="btn-fire px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
+          Share on X
+        </button>
+
+        <!-- Copy Link Button -->
+        <button
+          @click="copyLink"
+          class="bg-ash-800 text-fire-400 border border-fire-500/30 hover:bg-fire-500/10 hover:border-fire-500/50 px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+        >
+          <svg
+            v-if="!copySuccess"
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+            />
+          </svg>
+          <svg
+            v-else
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+          {{ copySuccess ? 'Copied!' : 'Copy Link' }}
+        </button>
+      </div>
+    </GlassCard>
+
     <!-- Action Buttons -->
-    <div class="flex flex-col sm:flex-row gap-3 justify-center">
-      <FireButton variant="primary" @click="shareResult">
-        Share Result
-      </FireButton>
+    <div class="flex justify-center">
       <FireButton variant="secondary" @click="emit('reset')">
         Try Another
       </FireButton>
