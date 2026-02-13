@@ -1,0 +1,258 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ============================================
+   FIREHORSE DESIGN SYSTEM — Tailwind CSS 4
+   ============================================ */
+
+@theme {
+  /* Fire palette */
+  --color-fire-50: #fff7ed;
+  --color-fire-100: #ffedd5;
+  --color-fire-200: #fed7aa;
+  --color-fire-300: #fdba74;
+  --color-fire-400: #fb923c;
+  --color-fire-500: #f97316;
+  --color-fire-600: #ea580c;
+  --color-fire-700: #c2410c;
+  --color-fire-800: #9a3412;
+  --color-fire-900: #7c2d12;
+  --color-fire-950: #431407;
+
+  /* Ember accent */
+  --color-ember-400: #fbbf24;
+  --color-ember-500: #f59e0b;
+  --color-ember-600: #d97706;
+
+  /* Ash/Dark base */
+  --color-ash-50: #fafafa;
+  --color-ash-100: #f5f5f5;
+  --color-ash-200: #e5e5e5;
+  --color-ash-300: #d4d4d4;
+  --color-ash-400: #a3a3a3;
+  --color-ash-500: #737373;
+  --color-ash-600: #525252;
+  --color-ash-700: #404040;
+  --color-ash-800: #262626;
+  --color-ash-900: #171717;
+  --color-ash-950: #0a0a0a;
+
+  /* Typography */
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-ash-950);
+  color: var(--color-ash-100);
+  overflow-x: hidden;
+}
+
+/* ============================================
+   FIRE TEXT EFFECT
+   ============================================ */
+
+.fire-text {
+  background: linear-gradient(
+    135deg,
+    var(--color-fire-500),
+    var(--color-ember-400),
+    var(--color-fire-600),
+    var(--color-ember-500)
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fire-shimmer 3s ease infinite;
+}
+
+@keyframes fire-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ============================================
+   GLASS MORPHISM
+   ============================================ */
+
+.glass {
+  background: rgba(23, 23, 23, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(249, 115, 22, 0.15);
+}
+
+.glass-strong {
+  background: rgba(23, 23, 23, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+/* ============================================
+   FIRE GLOW EFFECTS
+   ============================================ */
+
+.fire-glow {
+  box-shadow:
+    0 0 15px rgba(249, 115, 22, 0.3),
+    0 0 30px rgba(249, 115, 22, 0.15),
+    0 0 60px rgba(249, 115, 22, 0.05);
+}
+
+.fire-glow-strong {
+  box-shadow:
+    0 0 20px rgba(249, 115, 22, 0.5),
+    0 0 40px rgba(249, 115, 22, 0.25),
+    0 0 80px rgba(249, 115, 22, 0.1);
+}
+
+.ember-border {
+  border-image: linear-gradient(
+    135deg,
+    var(--color-fire-600),
+    var(--color-ember-500),
+    var(--color-fire-500)
+  ) 1;
+}
+
+/* ============================================
+   FIRE BUTTON
+   ============================================ */
+
+.btn-fire {
+  background: linear-gradient(135deg, var(--color-fire-600), var(--color-fire-500));
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-fire::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.btn-fire:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 20px rgba(249, 115, 22, 0.5),
+    0 0 40px rgba(249, 115, 22, 0.25);
+}
+
+.btn-fire:hover::before {
+  left: 100%;
+}
+
+/* ============================================
+   FLOATING EMBERS (background decoration)
+   ============================================ */
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+    opacity: 0;
+  }
+}
+
+.ember-particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: var(--color-fire-500);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow: 0 0 6px var(--color-fire-500), 0 0 12px var(--color-ember-500);
+  animation: float-up linear infinite;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ash-950);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-fire-700),
+    var(--color-fire-900)
+  );
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-fire-600);
+}
+
+/* ============================================
+   PAGE TRANSITIONS
+   ============================================ */
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+
+.text-shadow-fire {
+  text-shadow: 0 0 10px rgba(249, 115, 22, 0.5), 0 0 20px rgba(249, 115, 22, 0.3);
+}
+
+.gradient-fire-bg {
+  background: radial-gradient(
+    ellipse at bottom,
+    rgba(249, 115, 22, 0.15) 0%,
+    transparent 60%
+  );
+}
