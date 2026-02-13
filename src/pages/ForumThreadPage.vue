@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
-import { useRoute, RouterLink } from 'vue-router'
+import { useRoute, useRouter, RouterLink } from 'vue-router'
 import { useAuth } from '@clerk/vue'
 import GlassCard from '@/components/ui/GlassCard.vue'
 import FireButton from '@/components/ui/FireButton.vue'
@@ -8,6 +8,7 @@ import PostCard from '@/components/forum/PostCard.vue'
 import type { ForumPost, ForumThread } from '@/types'
 
 const route = useRoute()
+const router = useRouter()
 const { isSignedIn, getToken } = useAuth()
 
 const thread = ref<ForumThread | null>(null)
@@ -20,6 +21,7 @@ const totalPages = ref(1)
 const replyContent = ref('')
 const submitting = ref(false)
 const canPost = ref(false)
+const checkingOut = ref(false)
 
 const threadId = computed(() => route.params.id as string)
 
@@ -145,6 +147,36 @@ async function handleVote(postId: string, voteType: 'up' | 'down') {
     }
   } catch (err) {
     console.error('Error voting:', err)
+  }
+}
+
+async function upgradeToMember() {
+  if (!isSignedIn.value) {
+    router.push('/sign-in')
+    return
+  }
+
+  checkingOut.value = true
+
+  try {
+    const token = await getToken.value()
+    const response = await fetch('/api/checkout/create', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+
+    if (!response.ok) {
+      const data = await response.json()
+      throw new Error(data.error || 'Failed to start checkout')
+    }
+
+    const { url } = await response.json()
+    window.location.href = url
+  } catch (err) {
+    alert(err instanceof Error ? err.message : 'Failed to start checkout')
+    checkingOut.value = false
   }
 }
 
@@ -308,8 +340,11 @@ onMounted(async () => {
             <p class="text-ash-300 mb-4">
               Upgrade to a paid membership to join the conversation
             </p>
-            <FireButton>
-              Upgrade Now
+            <FireButton
+              @click="upgradeToMember"
+              :disabled="checkingOut"
+            >
+              {{ checkingOut ? 'Redirecting...' : 'Upgrade Now — $9.99' }}
             </FireButton>
           </div>
         </GlassCard>

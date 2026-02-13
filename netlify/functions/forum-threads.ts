@@ -1,17 +1,6 @@
 import type { Context } from "@netlify/functions"
 import { neon } from '@neondatabase/serverless'
-
-function getClerkUserId(req: Request): string | null {
-  const auth = req.headers.get('Authorization')
-  if (!auth?.startsWith('Bearer ')) return null
-  try {
-    const token = auth.split(' ')[1]
-    const payload = JSON.parse(atob(token.split('.')[1]))
-    return payload.sub || null
-  } catch {
-    return null
-  }
-}
+import { getVerifiedClerkUserId } from './utils/auth'
 
 export default async (req: Request, context: Context) => {
   const sql = neon(process.env.DATABASE_URL!)
@@ -123,7 +112,7 @@ export default async (req: Request, context: Context) => {
   // POST - Create new thread
   if (req.method === 'POST') {
     try {
-      const clerkId = getClerkUserId(req)
+      const clerkId = await getVerifiedClerkUserId(req)
       if (!clerkId) {
         return new Response(JSON.stringify({ error: 'Unauthorized' }), {
           status: 401,

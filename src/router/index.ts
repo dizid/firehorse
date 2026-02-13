@@ -52,12 +52,12 @@ const router = createRouter({
       component: () => import('@/pages/BlogPostPage.vue'),
     },
     {
-      path: '/sign-in',
+      path: '/sign-in/:pathMatch(.*)*',
       name: 'sign-in',
       component: () => import('@/pages/SignInPage.vue'),
     },
     {
-      path: '/sign-up',
+      path: '/sign-up/:pathMatch(.*)*',
       name: 'sign-up',
       component: () => import('@/pages/SignUpPage.vue'),
     },

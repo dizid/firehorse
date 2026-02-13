@@ -11,12 +11,14 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@clerk/backend": "^2.30.1",
     "@clerk/vue": "^1.17.12",
     "@neondatabase/serverless": "^1.0.2",
     "@tailwindcss/typography": "^0.5.19",
     "fuse.js": "^7.1.0",
     "marked": "^17.0.2",
     "pinia": "^3.0.4",
+    "stripe": "^20.3.1",
     "vue": "^3.5.25",
     "vue-router": "^4.6.4"
   },

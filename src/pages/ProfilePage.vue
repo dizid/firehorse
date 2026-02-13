@@ -14,6 +14,8 @@ const loading = ref(true)
 const error = ref<string | null>(null)
 const editing = ref(false)
 const saving = ref(false)
+const checkingOut = ref(false)
+const paymentMessage = ref<string | null>(null)
 
 const editForm = ref({
   username: '',
@@ -108,7 +110,49 @@ function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
+async function upgradeToMember() {
+  if (!isSignedIn.value) {
+    router.push('/sign-in')
+    return
+  }
+
+  checkingOut.value = true
+
+  try {
+    const token = await getToken.value()
+    const response = await fetch('/api/checkout/create', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+
+    if (!response.ok) {
+      const data = await response.json()
+      throw new Error(data.error || 'Failed to start checkout')
+    }
+
+    const { url } = await response.json()
+    window.location.href = url
+  } catch (err) {
+    alert(err instanceof Error ? err.message : 'Failed to start checkout')
+    checkingOut.value = false
+  }
+}
+
 onMounted(() => {
+  // Check for payment result from Stripe redirect
+  const urlParams = new URLSearchParams(window.location.search)
+  const paymentStatus = urlParams.get('payment')
+
+  if (paymentStatus === 'success') {
+    paymentMessage.value = 'Payment successful! Your membership has been activated.'
+    window.history.replaceState({}, '', '/profile')
+  } else if (paymentStatus === 'cancelled') {
+    paymentMessage.value = 'Payment was cancelled. You can try again anytime.'
+    window.history.replaceState({}, '', '/profile')
+  }
+
   if (!isLoaded.value) {
     setTimeout(() => {
       if (!isSignedIn.value) {
@@ -362,6 +406,13 @@ onMounted(() => {
           </div>
         </GlassCard>
 
+        <!-- Payment Message -->
+        <GlassCard v-if="paymentMessage" :glow="true">
+          <div class="text-center py-4">
+            <p class="text-fire-400 font-medium">{{ paymentMessage }}</p>
+          </div>
+        </GlassCard>
+
         <!-- Membership Card -->
         <GlassCard v-if="!profile.isPaidMember">
           <div class="text-center py-8">
@@ -371,8 +422,12 @@ onMounted(() => {
             <p class="text-ash-300 mb-6">
               Upgrade to a paid membership to post in the forum and access exclusive content
             </p>
-            <FireButton size="lg">
-              Upgrade Now
+            <FireButton
+              size="lg"
+              @click="upgradeToMember"
+              :disabled="checkingOut"
+            >
+              {{ checkingOut ? 'Redirecting to checkout...' : 'Upgrade Now — $9.99' }}
             </FireButton>
           </div>
         </GlassCard>

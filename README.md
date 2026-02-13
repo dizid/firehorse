@@ -35,6 +35,7 @@ Create `.env.local` with:
 ```
 VITE_CLERK_PUBLISHABLE_KEY=pk_live_...
 CLERK_SECRET_KEY=sk_live_...
+CLERK_WEBHOOK_SECRET=whsec_...
 DATABASE_URL=postgresql://...
 VITE_STRIPE_PUBLISHABLE_KEY=pk_live_...
 STRIPE_SECRET_KEY=sk_live_...
@@ -51,7 +52,7 @@ src/
   router/         Vue Router config
   types/          TypeScript interfaces
 netlify/
-  functions/      6 serverless API endpoints
+  functions/      7 serverless API endpoints
 ```
 
 ## API Endpoints
@@ -64,3 +65,4 @@ netlify/
 | `/api/forum/vote` | POST | Yes |
 | `/api/blog/posts` | GET | No |
 | `/api/user/profile` | GET, PUT | Yes |
+| `/api/clerk-webhook` | POST | Webhook signature |
