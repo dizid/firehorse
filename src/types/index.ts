@@ -42,48 +42,6 @@ export interface TimelineEvent {
   significance: string
 }
 
-// Forum types
-export interface ForumCategory {
-  id: string
-  name: string
-  slug: string
-  description: string
-  icon: string
-  threadCount: number
-  postCount: number
-}
-
-export interface ForumThread {
-  id: string
-  categoryId: string
-  title: string
-  authorId: string
-  authorName: string
-  authorAvatar?: string
-  createdAt: string
-  updatedAt: string
-  postCount: number
-  viewCount: number
-  isPinned: boolean
-  isLocked: boolean
-  lastPostAt: string
-  lastPostAuthor: string
-}
-
-export interface ForumPost {
-  id: string
-  threadId: string
-  authorId: string
-  authorName: string
-  authorAvatar?: string
-  content: string
-  createdAt: string
-  updatedAt?: string
-  upvotes: number
-  downvotes: number
-  userVote?: 'up' | 'down' | null
-}
-
 // Blog types
 export interface BlogPost {
   id: string
@@ -96,21 +54,6 @@ export interface BlogPost {
   publishedAt: string
   tags: string[]
   readTime: number
-}
-
-// User types
-export interface UserProfile {
-  id: string
-  clerkId: string
-  username: string
-  avatar?: string
-  zodiacAnimal?: ZodiacAnimal
-  zodiacElement?: ZodiacElement
-  birthYear?: number
-  isPaidMember: boolean
-  joinedAt: string
-  postCount: number
-  threadCount: number
 }
 
 // Navigation

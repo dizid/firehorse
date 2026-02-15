@@ -26,22 +26,7 @@ const router = createRouter({
       name: 'compatibility',
       component: () => import('@/pages/CompatibilityPage.vue'),
     },
-    {
-      path: '/forum',
-      name: 'forum',
-      component: () => import('@/pages/ForumPage.vue'),
-    },
-    {
-      path: '/forum/:categorySlug',
-      name: 'forum-category',
-      component: () => import('@/pages/ForumCategoryPage.vue'),
-    },
-    {
-      path: '/forum/thread/:id',
-      name: 'forum-thread',
-      component: () => import('@/pages/ForumThreadPage.vue'),
-    },
-    {
+{
       path: '/blog',
       name: 'blog',
       component: () => import('@/pages/BlogPage.vue'),
@@ -52,19 +37,9 @@ const router = createRouter({
       component: () => import('@/pages/BlogPostPage.vue'),
     },
     {
-      path: '/sign-in/:pathMatch(.*)*',
-      name: 'sign-in',
-      component: () => import('@/pages/SignInPage.vue'),
-    },
-    {
-      path: '/sign-up/:pathMatch(.*)*',
-      name: 'sign-up',
-      component: () => import('@/pages/SignUpPage.vue'),
-    },
-    {
-      path: '/profile',
-      name: 'profile',
-      component: () => import('@/pages/ProfilePage.vue'),
+      path: '/preview',
+      name: 'preview',
+      component: () => import('@/pages/PreviewPage.vue'),
     },
     {
       path: '/:pathMatch(.*)*',

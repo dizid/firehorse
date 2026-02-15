@@ -14,10 +14,6 @@ export function useAnalytics() {
     trackCompatibilityComplete: (animal: string, element: string, score: number) =>
       trackEvent('compatibility_check_complete', { animal, element, score }),
 
-    // Forum engagement
-    trackForumSignupClick: () =>
-      trackEvent('forum_signup_click'),
-
     // Content engagement
     trackBlogRead: (slug: string, title: string) =>
       trackEvent('blog_read', { slug, title }),

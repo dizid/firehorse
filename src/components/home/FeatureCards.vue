@@ -25,10 +25,10 @@ const features: Feature[] = [
     route: '/compatibility',
   },
   {
-    icon: '💬',
-    title: 'Community Forum',
-    description: 'Join the community — discuss, share experiences, and connect',
-    route: '/forum',
+    icon: '🔗',
+    title: 'Share & Compare',
+    description: 'Share your zodiac compatibility results with friends and family',
+    route: '/compatibility',
   },
   {
     icon: '✍️',

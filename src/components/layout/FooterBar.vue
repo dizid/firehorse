@@ -30,17 +30,6 @@ import { RouterLink } from 'vue-router'
           </ul>
         </div>
 
-        <!-- Community -->
-        <div>
-          <h3 class="font-display text-sm font-bold text-fire-400 uppercase tracking-wider mb-4">
-            Community
-          </h3>
-          <ul class="space-y-2">
-            <li><RouterLink to="/forum" class="text-sm text-ash-400 hover:text-fire-300 transition-colors">Forum</RouterLink></li>
-            <li><RouterLink to="/profile" class="text-sm text-ash-400 hover:text-fire-300 transition-colors">Profile</RouterLink></li>
-          </ul>
-        </div>
-
         <!-- Fire Horse Year -->
         <div>
           <h3 class="font-display text-sm font-bold text-fire-400 uppercase tracking-wider mb-4">

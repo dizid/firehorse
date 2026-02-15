@@ -257,21 +257,21 @@ const fireHorseYears = [
       <div class="container mx-auto max-w-4xl text-center">
         <GlassCard :glow="true" padding="p-12">
           <FireText tag="h2" class="text-4xl sm:text-5xl md:text-6xl mb-6">
-            Join the Fire Horse Community
+            Discover Your Fire Horse Connection
           </FireText>
           <p class="text-xl text-ash-300 mb-8 leading-relaxed">
-            Connect with fellow Fire Horses, explore your zodiac compatibility,
-            and discover what this rare year means for you.
+            Explore your zodiac compatibility with the Fire Horse
+            and share your results with friends and family.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <router-link to="/forum">
+            <router-link to="/compatibility">
               <button class="btn-fire px-8 py-4 text-lg">
-                Join the Forum
+                Check Your Compatibility
               </button>
             </router-link>
-            <router-link to="/compatibility">
+            <router-link to="/encyclopedia">
               <button class="bg-ash-800 text-fire-400 border border-fire-500/30 hover:bg-fire-500/10 hover:border-fire-500/50 px-8 py-4 rounded-xl font-semibold transition-all duration-300">
-                Check Compatibility
+                Explore the Encyclopedia
               </button>
             </router-link>
           </div>

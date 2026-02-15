@@ -1,18 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import { useAuth, SignInButton, UserButton } from '@clerk/vue'
 
 const route = useRoute()
-const { isSignedIn } = useAuth()
 const mobileOpen = ref(false)
 
 const navItems = [
   { label: 'Home', to: '/' },
   { label: 'Encyclopedia', to: '/encyclopedia' },
   { label: 'Compatibility', to: '/compatibility' },
-  { label: 'Forum', to: '/forum' },
-  { label: 'Blog', to: '/blog' },
+{ label: 'Blog', to: '/blog' },
 ]
 
 function isActive(path: string) {
@@ -57,18 +54,6 @@ function isActive(path: string) {
 
         <!-- Auth + mobile toggle -->
         <div class="flex items-center gap-3">
-          <!-- Auth -->
-          <template v-if="isSignedIn">
-            <UserButton />
-          </template>
-          <template v-else>
-            <SignInButton mode="modal">
-              <button class="btn-fire text-sm py-2 px-4">
-                Sign In
-              </button>
-            </SignInButton>
-          </template>
-
           <!-- Mobile hamburger -->
           <button
             class="md:hidden p-2 text-ash-300 hover:text-fire-400 transition-colors"
