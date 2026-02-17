@@ -5,6 +5,7 @@ import GlassCard from '@/components/ui/GlassCard.vue'
 import { getArticleBySlug, getRelatedArticles } from '@/lib/encyclopedia-data'
 import { renderMarkdown } from '@/lib/markdown'
 import { useAnalytics } from '@/composables/useAnalytics'
+import { useSeo } from '@/composables/useSeo'
 
 const { trackEncyclopediaView } = useAnalytics()
 
@@ -33,10 +34,20 @@ const categoryColors = {
   myths: 'text-rose-300',
 }
 
-// Track article view on mount
+// Track article view + set SEO on mount
 onMounted(() => {
   if (article.value) {
     trackEncyclopediaView(article.value.slug, article.value.category)
+    useSeo({
+      title: article.value.title,
+      description: article.value.excerpt,
+      path: `/encyclopedia/${article.value.slug}`,
+      type: 'article',
+      article: {
+        author: 'FireHorse',
+        tags: [article.value.category, 'fire horse', 'chinese zodiac'],
+      },
+    })
   }
 })
 </script>

@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import BlogCard from '@/components/blog/BlogCard.vue'
+import { useSeo } from '@/composables/useSeo'
 import type { BlogPost } from '@/types'
+
+useSeo({
+  title: 'Fire Horse Blog',
+  description: 'Articles, insights, and stories about the Fire Horse zodiac sign, Chinese astrology, and the 2026 Year of the Fire Horse.',
+  path: '/blog',
+})
 
 const posts = ref<BlogPost[]>([])
 const loading = ref(true)

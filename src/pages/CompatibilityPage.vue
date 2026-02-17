@@ -6,9 +6,16 @@ import ElementSelector from '@/components/compatibility/ElementSelector.vue'
 import CompatibilityResult from '@/components/compatibility/CompatibilityResult.vue'
 import { calculateCompatibility } from '@/lib/zodiac-data'
 import { useAnalytics } from '@/composables/useAnalytics'
+import { useSeo } from '@/composables/useSeo'
 import type { ZodiacAnimal, ZodiacElement, CompatibilityResult as CompatibilityResultType } from '@/types'
 
 const { trackCompatibilityComplete } = useAnalytics()
+
+useSeo({
+  title: 'Chinese Zodiac Compatibility Checker',
+  description: 'Check your zodiac compatibility with the Fire Horse. Select your animal sign and element to discover your compatibility score and relationship insights.',
+  path: '/compatibility',
+})
 
 const selectedAnimal = ref<ZodiacAnimal | null>(null)
 const selectedElement = ref<ZodiacElement | null>(null)

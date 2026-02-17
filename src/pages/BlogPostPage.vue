@@ -3,6 +3,7 @@ import { ref, onMounted, watch } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import GlassCard from '@/components/ui/GlassCard.vue'
 import { useAnalytics } from '@/composables/useAnalytics'
+import { useSeo } from '@/composables/useSeo'
 import type { BlogPost } from '@/types'
 
 const { trackBlogRead } = useAnalytics()
@@ -34,10 +35,22 @@ async function fetchPost() {
   }
 }
 
-// Track blog post view when loaded
+// Track blog post view + set SEO when loaded
 watch(post, (newPost) => {
   if (newPost) {
     trackBlogRead(newPost.slug, newPost.title)
+    useSeo({
+      title: newPost.title,
+      description: newPost.excerpt || `Read "${newPost.title}" on the Fire Horse blog.`,
+      path: `/blog/${newPost.slug}`,
+      type: 'article',
+      image: newPost.coverImage,
+      article: {
+        author: newPost.authorName,
+        publishedAt: newPost.publishedAt,
+        tags: newPost.tags,
+      },
+    })
   }
 })
 

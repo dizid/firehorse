@@ -49,6 +49,16 @@ const router = createRouter({
   ],
 })
 
+// Track SPA page views in GA4 (gtag only fires on initial load by default)
+router.afterEach((to) => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'page_view', {
+      page_path: to.fullPath,
+      page_title: document.title,
+    })
+  }
+})
+
 // Handle stale chunk errors after new deploys (old HTML references old chunk filenames)
 router.onError((error, to) => {
   if (

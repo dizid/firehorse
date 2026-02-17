@@ -3,7 +3,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://firehorse.info/</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,92 +11,78 @@
   <!-- Main Sections -->
   <url>
     <loc>https://firehorse.info/encyclopedia</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://firehorse.info/compatibility</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-<url>
+  <url>
     <loc>https://firehorse.info/blog</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://firehorse.info/sign-in</loc>
-    <lastmod>2026-02-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://firehorse.info/sign-up</loc>
-    <lastmod>2026-02-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
   </url>
 
   <!-- Encyclopedia Articles -->
   <url>
     <loc>https://firehorse.info/encyclopedia/origin-of-the-fire-horse</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://firehorse.info/encyclopedia/fire-horse-personality-traits</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://firehorse.info/encyclopedia/the-1966-hinoeuma-phenomenon</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://firehorse.info/encyclopedia/fire-horse-chinese-culture</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://firehorse.info/encyclopedia/fire-horse-japanese-culture</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://firehorse.info/encyclopedia/famous-fire-horses</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://firehorse.info/encyclopedia/fire-horse-myths-superstitions</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://firehorse.info/encyclopedia/2026-next-fire-horse-generation</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

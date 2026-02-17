@@ -2,7 +2,14 @@
 import { ref, computed } from 'vue'
 import ArticleCard from '@/components/encyclopedia/ArticleCard.vue'
 import { getArticlesByCategory } from '@/lib/encyclopedia-data'
+import { useSeo } from '@/composables/useSeo'
 import type { EncyclopediaArticle } from '@/types'
+
+useSeo({
+  title: 'Fire Horse Encyclopedia — Deep-Dive Articles',
+  description: 'Everything you need to know about the Fire Horse: history, personality traits, cultural significance, famous people, myths, and the 2026 generation.',
+  path: '/encyclopedia',
+})
 
 type CategoryFilter = 'all' | EncyclopediaArticle['category']
 

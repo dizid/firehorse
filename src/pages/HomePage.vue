@@ -6,8 +6,15 @@ import FeatureCards from '@/components/home/FeatureCards.vue'
 import GlassCard from '@/components/ui/GlassCard.vue'
 import FireText from '@/components/ui/FireText.vue'
 import { useAnalytics } from '@/composables/useAnalytics'
+import { useSeo } from '@/composables/useSeo'
 
 const { trackNewsletterSignup } = useAnalytics()
+
+useSeo({
+  title: 'FireHorse 2026 — Year of the Fire Horse',
+  description: 'Celebrate the Year of the Fire Horse 2026. Encyclopedia, compatibility checker, zodiac tools, and more.',
+  path: '/',
+})
 const newsletterEmail = ref('')
 const newsletterSubmitted = ref(false)
 const newsletterError = ref('')
