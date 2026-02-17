@@ -27,6 +27,7 @@ import { RouterLink } from 'vue-router'
             <li><RouterLink to="/encyclopedia" class="text-sm text-ash-400 hover:text-fire-300 transition-colors">Encyclopedia</RouterLink></li>
             <li><RouterLink to="/compatibility" class="text-sm text-ash-400 hover:text-fire-300 transition-colors">Compatibility</RouterLink></li>
             <li><RouterLink to="/blog" class="text-sm text-ash-400 hover:text-fire-300 transition-colors">Blog</RouterLink></li>
+            <li><a href="https://wuxingzodiac.me" target="_blank" rel="noopener" class="text-sm text-ash-400 hover:text-fire-300 transition-colors">All 60 Zodiac Signs &rarr;</a></li>
           </ul>
         </div>
 

@@ -252,6 +252,35 @@ const fireHorseYears = [
       </div>
     </section>
 
+    <!-- Explore All 60 Signs Banner -->
+    <section class="py-20 px-4 bg-gradient-to-b from-ash-950 to-ash-900">
+      <div class="container mx-auto max-w-4xl text-center">
+        <GlassCard :glow="true" padding="p-12">
+          <div class="flex justify-center gap-3 text-4xl mb-6">
+            <span>🌳</span><span>🔥</span><span>🌍</span><span>🪙</span><span>🌊</span>
+          </div>
+          <FireText tag="h2" class="text-4xl sm:text-5xl md:text-6xl mb-4">
+            Explore All 60 Zodiac Signs
+          </FireText>
+          <p class="text-xl text-ash-300 mb-3 leading-relaxed">
+            The Fire Horse is just one of 60 unique combinations in the Chinese sexagenary cycle.
+          </p>
+          <p class="text-lg text-ash-400 mb-8 leading-relaxed">
+            12 animals &times; 5 elements &mdash; Wood, Fire, Earth, Metal, Water.
+            Discover your exact sign and what it means.
+          </p>
+          <a
+            href="https://wuxingzodiac.me"
+            target="_blank"
+            rel="noopener"
+            class="inline-block btn-fire px-10 py-4 text-lg"
+          >
+            Visit Wu Xing Zodiac &rarr;
+          </a>
+        </GlassCard>
+      </div>
+    </section>
+
     <!-- Call to Action Section -->
     <section class="py-20 px-4 bg-ash-950">
       <div class="container mx-auto max-w-4xl text-center">
