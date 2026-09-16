@@ -17,7 +17,14 @@ import EmberParticles from '@/components/ui/EmberParticles.vue'
     <main class="flex-1 relative z-10">
       <RouterView v-slot="{ Component }">
         <Transition name="page" mode="out-in">
-          <component :is="Component" />
+          <Suspense>
+            <component :is="Component" />
+            <template #fallback>
+              <div class="flex items-center justify-center min-h-[50vh]">
+                <div class="inline-block w-12 h-12 border-4 border-fire-500 border-t-transparent rounded-full animate-spin"></div>
+              </div>
+            </template>
+          </Suspense>
         </Transition>
       </RouterView>
     </main>

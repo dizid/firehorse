@@ -1,58 +1,86 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import GlassCard from '@/components/ui/GlassCard.vue'
+import Breadcrumbs from '@/components/ui/Breadcrumbs.vue'
 import { useAnalytics } from '@/composables/useAnalytics'
-import { useSeo } from '@/composables/useSeo'
+import { useSeo, useBreadcrumbSchema } from '@/composables/useSeo'
 import type { BlogPost } from '@/types'
 
-const { trackBlogRead } = useAnalytics()
-const route = useRoute()
-const post = ref<BlogPost | null>(null)
-const loading = ref(true)
-const error = ref<string | null>(null)
-
-async function fetchPost() {
-  loading.value = true
-  error.value = null
-
-  try {
-    const slug = route.params.slug as string
-    const response = await fetch(`/api/blog/posts?slug=${slug}`)
-
-    if (!response.ok) {
-      if (response.status === 404) {
-        throw new Error('Post not found')
-      }
-      throw new Error('Failed to fetch post')
-    }
-
-    post.value = await response.json()
-  } catch (err) {
-    error.value = err instanceof Error ? err.message : 'An error occurred'
-  } finally {
-    loading.value = false
+// Blog posts live in Neon, not static data, so they need an explicit
+// server-side fetch path: vite-ssg's prerender pass has no browser and no
+// running Netlify Function to call, so `/api/blog/posts` can't resolve
+// during the build. On the server we query the DB directly (same pattern
+// as vite.config.ts's includedRoutes and scripts/generate-sitemap.mjs); in
+// the browser we keep using the API route as before.
+async function fetchPostFromDb(slug: string): Promise<BlogPost | null> {
+  const { getDb } = await import('@/lib/db')
+  const sql = getDb()
+  const [post] = await sql`
+    SELECT id, slug, title, excerpt, content, cover_image, author_name, tags, read_time, published_at
+    FROM blog_posts
+    WHERE slug = ${slug} AND is_published = true
+  `
+  if (!post) return null
+  return {
+    id: post.id,
+    slug: post.slug,
+    title: post.title,
+    excerpt: post.excerpt,
+    content: post.content,
+    coverImage: post.cover_image,
+    authorName: post.author_name,
+    tags: post.tags,
+    readTime: post.read_time,
+    publishedAt: post.published_at,
   }
 }
 
-// Track blog post view + set SEO when loaded
-watch(post, (newPost) => {
-  if (newPost) {
-    trackBlogRead(newPost.slug, newPost.title)
-    useSeo({
-      title: newPost.title,
-      description: newPost.excerpt || `Read "${newPost.title}" on the Fire Horse blog.`,
-      path: `/blog/${newPost.slug}`,
-      type: 'article',
-      image: newPost.coverImage,
-      article: {
-        author: newPost.authorName,
-        publishedAt: newPost.publishedAt,
-        tags: newPost.tags,
-      },
-    })
+async function fetchPostFromApi(slug: string): Promise<BlogPost | null> {
+  const response = await fetch(`/api/blog/posts?slug=${slug}`)
+  if (!response.ok) {
+    if (response.status === 404) return null
+    throw new Error('Failed to fetch post')
   }
-})
+  return response.json()
+}
+
+const { trackBlogRead } = useAnalytics()
+const route = useRoute()
+const slug = route.params.slug as string
+
+let post: BlogPost | null = null
+let fetchError: string | null = null
+
+try {
+  post = import.meta.env.SSR ? await fetchPostFromDb(slug) : await fetchPostFromApi(slug)
+} catch (err) {
+  fetchError = err instanceof Error ? err.message : 'An error occurred'
+}
+
+// SEO + tracking run once, synchronously after the data resolves — this
+// executes during vite-ssg's prerender pass too, so per-post title,
+// description, canonical, and Article JSON-LD get baked into the static
+// HTML instead of only appearing after client-side hydration.
+if (post) {
+  trackBlogRead(post.slug, post.title)
+  useSeo({
+    title: post.title,
+    description: post.excerpt || `Read "${post.title}" on the Fire Horse blog.`,
+    path: `/blog/${post.slug}`,
+    type: 'article',
+    image: post.coverImage,
+    article: {
+      author: post.authorName,
+      publishedAt: post.publishedAt,
+      tags: post.tags,
+    },
+  })
+  useBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog' },
+    { name: post.title, path: `/blog/${post.slug}` },
+  ])
+}
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString('en-US', {
@@ -61,15 +89,21 @@ function formatDate(date: string) {
     day: 'numeric'
   })
 }
-
-onMounted(() => {
-  fetchPost()
-})
 </script>
 
 <template>
   <div class="min-h-screen py-12 px-4">
     <div class="max-w-4xl mx-auto">
+      <!-- Breadcrumbs -->
+      <Breadcrumbs
+        v-if="post"
+        :items="[
+          { label: 'Home', to: '/' },
+          { label: 'Blog', to: '/blog' },
+          { label: post.title },
+        ]"
+      />
+
       <!-- Back Link -->
       <RouterLink
         to="/blog"
@@ -81,25 +115,30 @@ onMounted(() => {
         Back to Blog
       </RouterLink>
 
-      <!-- Loading State -->
-      <div
-        v-if="loading"
-        class="text-center py-20"
-      >
-        <div class="inline-block w-12 h-12 border-4 border-fire-500 border-t-transparent rounded-full animate-spin"></div>
-        <p class="mt-4 text-ash-400">Loading post...</p>
-      </div>
-
       <!-- Error State -->
       <div
-        v-else-if="error"
+        v-if="fetchError"
         class="text-center py-20"
       >
-        <p class="text-fire-400 text-lg">{{ error }}</p>
+        <p class="text-fire-400 text-lg">{{ fetchError }}</p>
+      </div>
+
+      <!-- Not Found -->
+      <div
+        v-else-if="!post"
+        class="text-center py-20"
+      >
+        <h1 class="font-display text-4xl font-bold text-ash-50 mb-4">Post Not Found</h1>
+        <p class="text-ash-400 mb-8">The post you're looking for doesn't exist.</p>
+        <RouterLink to="/blog">
+          <button class="btn-fire px-6 py-3 rounded-xl font-semibold">
+            View All Posts
+          </button>
+        </RouterLink>
       </div>
 
       <!-- Post Content -->
-      <article v-else-if="post">
+      <article v-else>
         <GlassCard :glow="true">
           <!-- Cover Image -->
           <div

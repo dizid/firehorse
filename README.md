@@ -1,25 +1,25 @@
 # FireHorse
 
-Celebrating the Year of the Fire Horse 2026. Encyclopedia, zodiac compatibility checker, community forum, and blog — built with Vue 3, TypeScript, and a fiery design system.
+Celebrating the Year of the Fire Horse 2026. Encyclopedia, zodiac compatibility checker, and blog — built with Vue 3, TypeScript, and a fiery design system.
 
 **Live:** [firehorse.info](http://firehorse.info/)
+**Sister site:** [wuxingzodiac.me](https://wuxingzodiac.me/) — multi-zodiac evergreen reference
 
 ## Stack
 
 - **Frontend:** Vue 3, TypeScript, Tailwind CSS 4, Vue Router, Pinia
-- **Auth:** Clerk
 - **Database:** Neon PostgreSQL (serverless)
-- **API:** Netlify Functions
+- **API:** Netlify Functions (Web `Request`/`Response`)
 - **Hosting:** Netlify
-- **Payments:** Stripe (paid forum posting)
+- **Analytics:** GA4 (event tracking via `useAnalytics` composable)
 
 ## Features
 
 - **Encyclopedia** — 8 researched articles covering Fire Horse history, traits, cultural significance, famous people, myths, and the 2026 generation
 - **Compatibility Checker** — Interactive zodiac animal + element selector with compatibility scoring against Fire Horse
-- **Community Forum** — Threaded discussions with categories, voting, pagination. Free to browse, paid membership to post
-- **Blog** — Articles served from Neon DB with full markdown rendering
-- **Fire Design System** — Canvas particle hero, glass morphism cards, ember floating particles, fire/ash color palette, page transitions
+- **Blog** — Articles served from Neon DB with sanitized markdown rendering (DOMPurify)
+- **Fire Design System** — Canvas particle hero with animated constellation horse, glass morphism cards, ember floating particles, fire/ash color palette, page transitions
+- **SEO** — Per-page meta tags, canonical URLs, JSON-LD (Article schema for content pages), GA4 SPA tracking
 
 ## Setup
 
@@ -33,36 +33,62 @@ npm run dev
 Create `.env.local` with:
 
 ```
-VITE_CLERK_PUBLISHABLE_KEY=pk_live_...
-CLERK_SECRET_KEY=sk_live_...
-CLERK_WEBHOOK_SECRET=whsec_...
 DATABASE_URL=postgresql://...
-VITE_STRIPE_PUBLISHABLE_KEY=pk_live_...
-STRIPE_SECRET_KEY=sk_live_...
 ```
+
+That's it. Auth and payments are not currently wired (see Roadmap below).
 
 ## Project Structure
 
 ```
 src/
-  components/     UI, layout, home, forum, blog, compatibility, encyclopedia
-  pages/          13 route pages (lazy-loaded)
-  lib/            Zodiac data, encyclopedia content, DB client, markdown
+  components/     ui, layout, home, blog, compatibility, encyclopedia
+  pages/          7 route pages (lazy-loaded)
+  lib/            Zodiac data, encyclopedia content, DB client, sanitized markdown
+  composables/    useSeo, useAnalytics, useFireHorse (canvas animation)
   styles/         Fire design system (Tailwind CSS 4 @theme)
   router/         Vue Router config
   types/          TypeScript interfaces
 netlify/
-  functions/      7 serverless API endpoints
+  functions/      Serverless API endpoints
 ```
+
+## Routes
+
+| Route | Page |
+|---|---|
+| `/` | Home |
+| `/encyclopedia` | Article index |
+| `/encyclopedia/:slug` | Article detail |
+| `/compatibility` | Zodiac compatibility checker |
+| `/blog` | Blog index (DB-driven) |
+| `/blog/:slug` | Blog post detail |
+| `/preview` | **Dev-only** — fire animation preset tuner (gated behind `import.meta.env.DEV`) |
+| `*` | 404 |
 
 ## API Endpoints
 
 | Endpoint | Methods | Auth |
-|----------|---------|------|
-| `/api/forum/categories` | GET | No |
-| `/api/forum/threads` | GET, POST | POST requires auth + paid |
-| `/api/forum/posts` | GET, POST | POST requires auth + paid |
-| `/api/forum/vote` | POST | Yes |
+|---|---|---|
 | `/api/blog/posts` | GET | No |
-| `/api/user/profile` | GET, PUT | Yes |
-| `/api/clerk-webhook` | POST | Webhook signature |
+
+## Roadmap
+
+See [PROJECT-PLAN.md](./PROJECT-PLAN.md) for the execution plan covering:
+
+- Sitemap, robots.txt, Article JSON-LD (in progress)
+- `vite-ssg` pre-rendering of encyclopedia + blog (planned)
+- Per-article Open Graph images (planned)
+- $7 premium compatibility-report PDF via Stripe Checkout + Resend (planned)
+- Email-list capture on the compatibility results page (planned)
+
+If auth is ever needed, the project will use **Firebase Auth** (the Dizid stack default). Clerk has been ruled out.
+
+## Commands
+
+```bash
+npm run dev          # Vite dev server (Netlify Functions emulated via @netlify/vite-plugin)
+npm run build        # vue-tsc + Vite build
+npm run test         # Vitest run-once
+npm run test:watch   # Vitest watch mode
+```

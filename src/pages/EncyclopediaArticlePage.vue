@@ -2,10 +2,11 @@
 import { computed, onMounted } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import GlassCard from '@/components/ui/GlassCard.vue'
+import Breadcrumbs from '@/components/ui/Breadcrumbs.vue'
 import { getArticleBySlug, getRelatedArticles } from '@/lib/encyclopedia-data'
 import { renderMarkdown } from '@/lib/markdown'
 import { useAnalytics } from '@/composables/useAnalytics'
-import { useSeo } from '@/composables/useSeo'
+import { useSeo, useBreadcrumbSchema } from '@/composables/useSeo'
 
 const { trackEncyclopediaView } = useAnalytics()
 
@@ -34,26 +35,46 @@ const categoryColors = {
   myths: 'text-rose-300',
 }
 
-// Track article view + set SEO on mount
+// SEO must run synchronously during setup so vite-ssg bakes it into the
+// prerendered HTML — onMounted never fires during SSG.
+if (article.value) {
+  useSeo({
+    title: article.value.title,
+    description: article.value.excerpt,
+    path: `/encyclopedia/${article.value.slug}`,
+    type: 'article',
+    article: {
+      author: 'FireHorse',
+      tags: [article.value.category, 'fire horse', 'chinese zodiac'],
+    },
+  })
+  useBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Encyclopedia', path: '/encyclopedia' },
+    { name: article.value.title, path: `/encyclopedia/${article.value.slug}` },
+  ])
+}
+
+// Analytics tracking is client-only, so it stays in onMounted.
 onMounted(() => {
   if (article.value) {
     trackEncyclopediaView(article.value.slug, article.value.category)
-    useSeo({
-      title: article.value.title,
-      description: article.value.excerpt,
-      path: `/encyclopedia/${article.value.slug}`,
-      type: 'article',
-      article: {
-        author: 'FireHorse',
-        tags: [article.value.category, 'fire horse', 'chinese zodiac'],
-      },
-    })
   }
 })
 </script>
 
 <template>
   <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+    <!-- Breadcrumbs -->
+    <Breadcrumbs
+      v-if="article"
+      :items="[
+        { label: 'Home', to: '/' },
+        { label: 'Encyclopedia', to: '/encyclopedia' },
+        { label: article.title },
+      ]"
+    />
+
     <!-- Back Button -->
     <RouterLink
       to="/encyclopedia"

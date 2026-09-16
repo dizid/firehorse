@@ -14,8 +14,6 @@ export const encyclopediaArticles: EncyclopediaArticle[] = [
     category: 'history',
     excerpt: 'Discover how the Fire Horse emerged from the ancient Chinese sexagenary cycle — a 60-year system combining the twelve zodiac animals with the five elements.',
     content: `
-# The Origin of the Fire Horse
-
 The Fire Horse (Hinoeuma in Japanese, 丙午 Bǐngwǔ in Chinese) is not simply a zodiac sign — it is a rare convergence that occurs only once every 60 years, when the Year of the Horse aligns with the Fire element in the sexagenary cycle.
 
 ## The Sexagenary Cycle
@@ -78,8 +76,6 @@ The sexagenary cycle continues to be used throughout East and Southeast Asia for
     category: 'traits',
     excerpt: 'People born in Fire Horse years possess one of the most dynamic personality profiles in Asian astrology: energetic, bold, charismatic, and fiercely independent.',
     content: `
-# Fire Horse Personality Traits
-
 People born in Fire Horse years (1906, 1966, 2026) possess one of the most dynamic and intense personality profiles in all of Asian astrology. According to traditional Chinese astrology, the Fire element intensifies the Horse's natural qualities, creating individuals who are impossible to ignore.
 
 ## Core Characteristics
@@ -166,8 +162,6 @@ At their best, Fire Horse individuals are world-changers. They're the artists wh
     category: 'history',
     excerpt: 'Japan\'s birth rate plummeted by 25% in 1966 as families deliberately avoided having Fire Horse daughters. This demographic event remains one of history\'s most dramatic examples of superstition shaping society.',
     content: `
-# The 1966 Hinoeuma Phenomenon
-
 In 1966, Japan experienced one of the most striking demographic events in modern history. The birth rate dropped by approximately 25% — not due to war, famine, or disease, but because of an astrological superstition about Fire Horse women. This remains a famous case study in sociology, demographics, gender studies, and public health.
 
 ## The Numbers
@@ -285,8 +279,6 @@ The 1966 phenomenon remains a fascinating historical moment when ancient superst
     category: 'culture',
     excerpt: 'In Chinese tradition, the Fire Horse represents powerful, auspicious energy symbolizing leadership, transformation, and yang power at its peak — a stark contrast to Japanese superstitions.',
     content: `
-# Fire Horse in Chinese Culture
-
 In Chinese culture, the Fire Horse (Bǐngwǔ, 丙午) occupies a powerful and generally positive position in the astrological hierarchy. Unlike the Japanese Hinoeuma superstitions, Chinese tradition views this rare combination as auspicious and strong, though demanding proper respect and understanding.
 
 ## Traditional Chinese Perspective
@@ -452,8 +444,6 @@ This positive framing allows Fire Horse individuals to embrace their nature full
     category: 'culture',
     excerpt: 'The complex Japanese relationship with Hinoeuma: from feared superstition causing demographic crisis to modern reclamation as a symbol of female empowerment.',
     content: `
-# Fire Horse in Japanese Culture
-
 The Fire Horse (Hinoeuma, 丙午 or ひのえうま) holds a unique and controversial place in Japanese cultural history. No other zodiac sign has influenced Japanese society so dramatically, causing a 25% birth rate collapse in 1966 and inspiring ongoing debates about tradition, gender, and modernity.
 
 ## The Hinoeuma Superstition
@@ -643,8 +633,6 @@ The 2026 Fire Horse generation will write the next chapter of this fascinating c
     category: 'famous',
     excerpt: 'Notable individuals born in 1906 and 1966 who embodied Fire Horse characteristics: Josephine Baker, Mike Tyson, Janet Jackson, Salma Hayek, and other bold leaders and innovators.',
     content: `
-# Famous Fire Horses Throughout History
-
 The Fire Horse's reputation for producing bold, independent, and influential individuals is validated by examining notable people born in Fire Horse years. These individuals exemplify the sign's characteristics: passionate, courageous, magnetic, and unafraid to challenge conventions. Their achievements demonstrate what Fire Horse energy can accomplish when properly channeled.
 
 ## 1906 Fire Horses
@@ -870,8 +858,6 @@ The next generation of Fire Horses, born in 2026, will have these individuals as
     category: 'myths',
     excerpt: 'Separating fact from fiction: examining the myths, superstitions, and cultural fears that surrounded Fire Horse individuals for centuries, particularly targeting women.',
     content: `
-# Fire Horse Myths and Superstitions
-
 The Fire Horse has inspired more myths, superstitions, and cultural anxieties than perhaps any other zodiac sign. Understanding these beliefs — where they came from, why they persisted, and how much truth they contain — requires separating cultural fear from astrological reality.
 
 ## The Major Myths
@@ -1110,8 +1096,6 @@ The myths are finally being recognized for what they always were: not cosmic tru
     category: 'history',
     excerpt: 'The Year of the Fire Horse begins February 17, 2026. How modern parents are preparing, why this generation will be different, and what these children might bring to the world.',
     content: `
-# 2026: The Next Fire Horse Generation
-
 On February 17, 2026, the Year of the Fire Horse begins, running through February 5, 2027. For the first time in 60 years, a new generation of Fire Horse children will be born — and everything about how the world receives them has fundamentally changed.
 
 ## A Different World

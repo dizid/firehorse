@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import BlogCard from '@/components/blog/BlogCard.vue'
 import { useSeo } from '@/composables/useSeo'
 import type { BlogPost } from '@/types'
@@ -10,51 +10,101 @@ useSeo({
   path: '/blog',
 })
 
+const PAGE_SIZE = 12
+
+// Same split as BlogPostPage.vue: vite-ssg's prerender pass has no running
+// Netlify Function to call `/api/blog/posts`, so the first page of posts is
+// fetched directly from Neon on the server; the browser keeps using the API
+// route (needed anyway for pagination past page 1).
+async function fetchPostsFromDb(page: number) {
+  const { getDb } = await import('@/lib/db')
+  const sql = getDb()
+  const offset = (page - 1) * PAGE_SIZE
+
+  const rows = await sql`
+    SELECT id, slug, title, excerpt, cover_image, author_name, tags, read_time, published_at
+    FROM blog_posts
+    WHERE is_published = true
+    ORDER BY published_at DESC
+    LIMIT ${PAGE_SIZE}
+    OFFSET ${offset}
+  `
+  const countRows = await sql`
+    SELECT COUNT(*)::int AS count FROM blog_posts WHERE is_published = true
+  `
+  const count = (countRows[0]?.count as number | undefined) ?? 0
+
+  return {
+    posts: rows.map((post: any) => ({
+      id: post.id,
+      slug: post.slug,
+      title: post.title,
+      excerpt: post.excerpt,
+      coverImage: post.cover_image,
+      authorName: post.author_name,
+      tags: post.tags,
+      readTime: post.read_time,
+      publishedAt: post.published_at,
+    })) as BlogPost[],
+    page,
+    totalPages: Math.max(1, Math.ceil(count / PAGE_SIZE)),
+  }
+}
+
+async function fetchPostsFromApi(page: number) {
+  const response = await fetch(`/api/blog/posts?page=${page}`)
+  if (!response.ok) {
+    throw new Error('Failed to fetch blog posts')
+  }
+  return response.json()
+}
+
 const posts = ref<BlogPost[]>([])
-const loading = ref(true)
 const error = ref<string | null>(null)
 const currentPage = ref(1)
 const totalPages = ref(1)
+const paginating = ref(false)
 
-async function fetchPosts(page: number = 1) {
-  loading.value = true
+// Initial page loads synchronously (awaited during setup) so vite-ssg bakes
+// real posts into the prerendered HTML instead of an empty grid.
+try {
+  const data = import.meta.env.SSR ? await fetchPostsFromDb(1) : await fetchPostsFromApi(1)
+  posts.value = data.posts
+  currentPage.value = data.page
+  totalPages.value = data.totalPages
+} catch (err) {
+  error.value = err instanceof Error ? err.message : 'An error occurred'
+}
+
+async function goToPage(page: number) {
+  paginating.value = true
   error.value = null
 
   try {
-    const response = await fetch(`/api/blog/posts?page=${page}`)
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch blog posts')
-    }
-
-    const data = await response.json()
+    const data = await fetchPostsFromApi(page)
     posts.value = data.posts
     currentPage.value = data.page
     totalPages.value = data.totalPages
   } catch (err) {
     error.value = err instanceof Error ? err.message : 'An error occurred'
   } finally {
-    loading.value = false
+    paginating.value = false
   }
 }
 
 function nextPage() {
   if (currentPage.value < totalPages.value) {
-    fetchPosts(currentPage.value + 1)
+    goToPage(currentPage.value + 1)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 }
 
 function prevPage() {
   if (currentPage.value > 1) {
-    fetchPosts(currentPage.value - 1)
+    goToPage(currentPage.value - 1)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 }
-
-onMounted(() => {
-  fetchPosts()
-})
 </script>
 
 <template>
@@ -70,9 +120,9 @@ onMounted(() => {
         </p>
       </div>
 
-      <!-- Loading State -->
+      <!-- Loading State (pagination) -->
       <div
-        v-if="loading"
+        v-if="paginating"
         class="text-center py-20"
       >
         <div class="inline-block w-12 h-12 border-4 border-fire-500 border-t-transparent rounded-full animate-spin"></div>

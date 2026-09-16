@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { mount, flushPromises } from '@vue/test-utils'
+import { createHead } from '@unhead/vue/client'
 import CompatibilityPage from '../CompatibilityPage.vue'
 
 // Mock useAnalytics — it references window.gtag
@@ -15,6 +16,9 @@ describe('CompatibilityPage', () => {
   function createWrapper() {
     return mount(CompatibilityPage, {
       global: {
+        // useSeo() calls useHead(), which needs the unhead plugin installed
+        // — mirrors the createHead() the real app installs via ViteSSG.
+        plugins: [createHead()],
         stubs: {
           // Stub CompatibilityResult to avoid its onMounted timer + window.open/clipboard usage
           CompatibilityResult: {

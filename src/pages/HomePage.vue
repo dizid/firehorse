@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useHead } from '@unhead/vue'
 import FireHero from '@/components/home/FireHero.vue'
 import CountdownTimer from '@/components/home/CountdownTimer.vue'
 import FeatureCards from '@/components/home/FeatureCards.vue'
@@ -14,6 +15,56 @@ useSeo({
   title: 'FireHorse 2026 — Year of the Fire Horse',
   description: 'Celebrate the Year of the Fire Horse 2026. Encyclopedia, compatibility checker, zodiac tools, and more.',
   path: '/',
+})
+
+// Real Q&A pulled from the encyclopedia content below — FAQPage schema
+// mirrors how people actually phrase these as questions to AI search tools.
+const faqs = [
+  {
+    question: 'What is a Fire Horse in Chinese astrology?',
+    answer:
+      "A Fire Horse is a rare astrological combination that occurs when the Year of the Horse aligns with the Fire element in the 60-year Chinese sexagenary cycle — happening only once every 60 years (1846, 1906, 1966, 2026, 2086). It's known in Chinese as Bǐngwǔ (丙午) and in Japanese as Hinoeuma.",
+  },
+  {
+    question: 'When is the next Fire Horse year?',
+    answer:
+      '2026 is the next Fire Horse year, beginning with Chinese New Year on February 17, 2026. The Fire Horse last appeared in 1966 and won\'t return again until 2086.',
+  },
+  {
+    question: 'What are Fire Horse personality traits?',
+    answer:
+      "People born in Fire Horse years are traditionally described as having one of the most dynamic personality profiles in Asian astrology: energetic, bold, charismatic, and fiercely independent. The Fire element intensifies the Horse's natural drive, creating natural leaders unafraid to challenge the status quo.",
+  },
+  {
+    question: 'Why is the Fire Horse considered unlucky in Japan?',
+    answer:
+      "A Japanese superstition called Hinoeuma holds that women born in a Fire Horse year are too strong-willed to make good wives. It had real demographic consequences: Japan's birth rate dropped by approximately 25% in 1966 as families deliberately avoided having Fire Horse daughters — one of history's most dramatic examples of superstition shaping society.",
+  },
+  {
+    question: 'Is 2026 a good year to have a Fire Horse baby?',
+    answer:
+      "Modern interpretations increasingly reframe the Fire Horse as a blessing rather than a curse — a sign that a child will be strong, independent, and powerful in a world that values those traits, rather than the liability older superstition considered it.",
+  },
+]
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      }),
+    },
+  ],
 })
 const newsletterEmail = ref('')
 const newsletterSubmitted = ref(false)
@@ -178,6 +229,35 @@ const fireHorseYears = [
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-4 bg-gradient-to-b from-ash-950 via-ash-900 to-ash-950">
+      <div class="container mx-auto max-w-4xl">
+        <div class="text-center mb-12">
+          <FireText tag="h2" class="text-3xl sm:text-4xl md:text-5xl mb-4">
+            Frequently Asked Questions
+          </FireText>
+          <p class="text-lg text-ash-400">
+            Everything you're wondering about the Fire Horse and 2026
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          <GlassCard
+            v-for="faq in faqs"
+            :key="faq.question"
+            padding="p-8"
+          >
+            <h3 class="text-xl font-display font-bold text-fire-400 mb-3">
+              {{ faq.question }}
+            </h3>
+            <p class="text-ash-300 leading-relaxed">
+              {{ faq.answer }}
+            </p>
+          </GlassCard>
         </div>
       </div>
     </section>

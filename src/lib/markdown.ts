@@ -1,11 +1,12 @@
 import { marked } from 'marked'
+import DOMPurify from 'isomorphic-dompurify'
 
-// Configure marked for safe rendering
 marked.setOptions({
   breaks: true,
   gfm: true,
 })
 
 export function renderMarkdown(content: string): string {
-  return marked.parse(content) as string
+  const html = marked.parse(content) as string
+  return DOMPurify.sanitize(html)
 }

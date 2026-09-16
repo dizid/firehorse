@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /sign-in
-Disallow: /sign-up
 Disallow: /preview
+
 Sitemap: https://firehorse.info/sitemap.xml
