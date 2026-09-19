@@ -17,7 +17,7 @@
     # CompatibilityResult, ElementSelector, ZodiacSelector) use dynamic
     # :style bindings that render as inline style="" attributes — there's no
     # nonce/hash build step here to tighten this further.
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; form-action 'self'; base-uri 'self'; frame-ancestors 'none'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.google.com; form-action 'self'; base-uri 'self'; frame-ancestors 'none'"
 
 [[headers]]
   for = "/assets/*"
