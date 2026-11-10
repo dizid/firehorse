@@ -8,7 +8,7 @@ import { useHead } from '@unhead/vue'
 
 const BASE_URL = 'https://firehorse.info'
 const SITE_NAME = 'FireHorse'
-const DEFAULT_IMAGE = `${BASE_URL}/og-image.svg`
+const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`
 
 interface SeoOptions {
   title: string

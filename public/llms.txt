@@ -1,0 +1,23 @@
+# FireHorse
+
+> FireHorse (https://firehorse.info) is a free site about the Fire Horse (丙午, bing wu) in the Chinese zodiac and the 2026 Year of the Fire Horse, which runs from the Lunar New Year on 17 February 2026 to 5 February 2027. The Fire Horse sign comes round once every 60 years; the previous Fire Horse year was 1966. The site has an encyclopedia, a compatibility checker and a blog. Made by Dizid (https://dizid.com); sister site of Wu Xing Zodiac (https://wuxingzodiac.me).
+
+## Encyclopedia
+- [Origin of the Fire Horse](https://firehorse.info/encyclopedia/origin-of-the-fire-horse)
+- [Fire Horse personality traits](https://firehorse.info/encyclopedia/fire-horse-personality-traits)
+- [The 1966 Hinoeuma phenomenon](https://firehorse.info/encyclopedia/the-1966-hinoeuma-phenomenon): Japan's sharp drop in births in 1966, when many families avoided having a Fire Horse daughter.
+- [The Fire Horse in Chinese culture](https://firehorse.info/encyclopedia/fire-horse-chinese-culture)
+- [The Fire Horse in Japanese culture](https://firehorse.info/encyclopedia/fire-horse-japanese-culture)
+- [Famous Fire Horses](https://firehorse.info/encyclopedia/famous-fire-horses)
+- [Fire Horse myths and superstitions](https://firehorse.info/encyclopedia/fire-horse-myths-superstitions)
+- [2026: the next Fire Horse generation](https://firehorse.info/encyclopedia/2026-next-fire-horse-generation)
+
+## Tools
+- [Compatibility checker](https://firehorse.info/compatibility): pick your animal sign and element to see your compatibility score with the Fire Horse and what it means for a relationship. Free.
+
+## Blog
+- [All articles](https://firehorse.info/blog), for example [the 2026 Year of the Fire Horse](https://firehorse.info/blog/2026-year-of-fire-horse), [Japan's Fire Horse superstition and birth rate](https://firehorse.info/blog/japan-fire-horse-superstition-birth-rate) and [a guide to the Chinese zodiac elements](https://firehorse.info/blog/chinese-zodiac-elements-guide).
+
+## Related
+- All 60 element-and-animal signs, a birth-date sign calculator and a paid 8-page personal PDF reading ($9.90): Wu Xing Zodiac, https://wuxingzodiac.me (reading: https://wuxingzodiac.me/reading).
+- Chinese astrology content here is for entertainment and cultural interest.
