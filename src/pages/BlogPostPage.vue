@@ -131,9 +131,9 @@ function formatDate(date: string) {
         <h1 class="font-display text-4xl font-bold text-ash-50 mb-4">Post Not Found</h1>
         <p class="text-ash-400 mb-8">The post you're looking for doesn't exist.</p>
         <RouterLink to="/blog">
-          <button class="btn-fire px-6 py-3 rounded-xl font-semibold">
+          <span class="btn-fire px-6 py-3 rounded-xl font-semibold inline-block align-top text-center">
             View All Posts
-          </button>
+          </span>
         </RouterLink>
       </div>
 

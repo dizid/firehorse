@@ -381,14 +381,14 @@ const fireHorseYears = [
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <router-link to="/compatibility">
-              <button class="btn-fire px-8 py-4 text-lg">
+              <span class="btn-fire px-8 py-4 text-lg inline-block align-top text-center">
                 Check Your Compatibility
-              </button>
+              </span>
             </router-link>
             <router-link to="/encyclopedia">
-              <button class="bg-ash-800 text-fire-400 border border-fire-500/30 hover:bg-fire-500/10 hover:border-fire-500/50 px-8 py-4 rounded-xl font-semibold transition-all duration-300">
+              <span class="bg-ash-800 text-fire-400 border border-fire-500/30 hover:bg-fire-500/10 hover:border-fire-500/50 px-8 py-4 rounded-xl font-semibold transition-all duration-300 inline-block align-top text-center">
                 Explore the Encyclopedia
-              </button>
+              </span>
             </router-link>
           </div>
         </GlassCard>
