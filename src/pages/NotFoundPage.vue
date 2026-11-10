@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import { useHead } from '@unhead/vue'
 import FireButton from '@/components/ui/FireButton.vue'
+
+// Unknown URLs get this page with status 200 (SPA fallback): its own title and
+// noindex keep Google from indexing it as a copy of the home page (soft 404).
+useHead({
+  title: 'Page not found | FireHorse',
+  meta: [{ name: 'robots', content: 'noindex' }],
+})
 </script>
 
 <template>
