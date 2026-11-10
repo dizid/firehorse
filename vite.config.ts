@@ -56,7 +56,16 @@ export default defineConfig({
   // @ts-expect-error — ssgOptions is augmented onto UserConfig by vite-ssg
   ssgOptions: {
     script: 'async',
-    formatting: 'minify',
+    // No HTML minifying: it strips Vue's comment markers and whitespace, which breaks hydration
+    formatting: 'none',
+    // Stamp each prerendered page with its route; src/main.ts only hydrates when it
+    // matches the URL (the SPA fallback serves the home HTML for other paths).
+    onPageRendered(route: string, renderedHTML: string) {
+      return renderedHTML.replace(
+        '<div id="app" data-server-rendered="true">',
+        `<div id="app" data-server-rendered="true" data-ssg-route="${route.replace(/"/g, '&quot;')}">`,
+      )
+    },
     async includedRoutes(paths: string[]) {
       const blogSlugs = await getBlogSlugs()
       const dynamic = [
