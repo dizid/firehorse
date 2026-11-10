@@ -33,9 +33,9 @@ const categoryColor = computed(() => categoryColors[props.article.category])
           {{ article.category }}
         </span>
 
-        <h3 class="font-display text-xl font-bold text-ash-50 mb-2 line-clamp-2">
+        <h2 class="font-display text-xl font-bold text-ash-50 mb-2 line-clamp-2">
           {{ article.title }}
-        </h3>
+        </h2>
 
         <p class="text-ash-400 text-sm flex-grow line-clamp-3 mb-4">
           {{ article.excerpt }}
