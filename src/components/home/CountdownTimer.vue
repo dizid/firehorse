@@ -9,7 +9,11 @@ interface TimeLeft {
   seconds: number
 }
 
-const targetDate = new Date('2026-02-17T00:00:00+08:00') // Chinese New Year 2026 (China timezone)
+// End of the Fire Horse year: Chinese New Year 2027 (Feb 6, China time) starts the Fire Goat
+// year. The old target, Chinese New Year 2026, passed on Feb 17 2026 and the cards showed zeros.
+const targetDate = new Date('2027-02-06T00:00:00+08:00')
+// Once the year is over the section hides instead of showing 00:00:00:00
+const ended = ref(false)
 const timeLeft = ref<TimeLeft>({
   days: 0,
   hours: 0,
@@ -32,7 +36,8 @@ function calculateTimeLeft() {
       seconds: Math.floor((difference % (1000 * 60)) / 1000),
     }
   } else {
-    // Event has passed
+    // The Fire Horse year is over
+    ended.value = true
     timeLeft.value = { days: 0, hours: 0, minutes: 0, seconds: 0 }
     if (intervalId) {
       clearInterval(intervalId)
@@ -57,15 +62,15 @@ function formatNumber(num: number): string {
 </script>
 
 <template>
-  <section class="py-20 px-4 bg-gradient-to-b from-ash-950 via-ash-900 to-ash-950">
+  <section v-if="!ended" class="py-20 px-4 bg-gradient-to-b from-ash-950 via-ash-900 to-ash-950">
     <div class="container mx-auto max-w-6xl">
       <!-- Section header -->
       <div class="text-center mb-12">
         <h2 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-4">
-          <span class="fire-text">The Fire Ignites</span>
+          <span class="fire-text">The Fire Horse Year</span>
         </h2>
         <p class="text-xl text-ash-400">
-          Chinese New Year 2026 · February 17
+          Time left · February 17, 2026 – February 5, 2027
         </p>
       </div>
 
