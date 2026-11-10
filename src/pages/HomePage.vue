@@ -315,7 +315,7 @@ const fireHorseYears = [
               <p v-if="newsletterError" class="text-sm text-red-400 mt-3 text-center">
                 {{ newsletterError }}
               </p>
-              <p class="text-xs text-ash-500 mt-4 text-center">
+              <p class="text-xs text-ash-450 mt-4 text-center">
                 We respect your privacy. Unsubscribe anytime.
               </p>
             </form>

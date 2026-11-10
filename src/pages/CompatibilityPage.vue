@@ -72,14 +72,14 @@ function handleSkipToResult(animal: ZodiacAnimal, element: ZodiacElement) {
             :class="
               currentStep >= 1
                 ? 'bg-fire-500 border-fire-500 text-white'
-                : 'border-ash-600 text-ash-600'
+                : 'border-ash-600 text-ash-450'
             "
           >
             1
           </div>
           <span
             class="ml-2 font-semibold hidden sm:inline"
-            :class="currentStep >= 1 ? 'text-fire-400' : 'text-ash-600'"
+            :class="currentStep >= 1 ? 'text-fire-400' : 'text-ash-450'"
           >
             Animal
           </span>
@@ -98,14 +98,14 @@ function handleSkipToResult(animal: ZodiacAnimal, element: ZodiacElement) {
             :class="
               currentStep >= 2
                 ? 'bg-fire-500 border-fire-500 text-white'
-                : 'border-ash-600 text-ash-600'
+                : 'border-ash-600 text-ash-450'
             "
           >
             2
           </div>
           <span
             class="ml-2 font-semibold hidden sm:inline"
-            :class="currentStep >= 2 ? 'text-fire-400' : 'text-ash-600'"
+            :class="currentStep >= 2 ? 'text-fire-400' : 'text-ash-450'"
           >
             Element
           </span>
@@ -124,14 +124,14 @@ function handleSkipToResult(animal: ZodiacAnimal, element: ZodiacElement) {
             :class="
               currentStep >= 3
                 ? 'bg-fire-500 border-fire-500 text-white'
-                : 'border-ash-600 text-ash-600'
+                : 'border-ash-600 text-ash-450'
             "
           >
             3
           </div>
           <span
             class="ml-2 font-semibold hidden sm:inline"
-            :class="currentStep >= 3 ? 'text-fire-400' : 'text-ash-600'"
+            :class="currentStep >= 3 ? 'text-fire-400' : 'text-ash-450'"
           >
             Result
           </span>
@@ -172,7 +172,7 @@ function handleSkipToResult(animal: ZodiacAnimal, element: ZodiacElement) {
 
     <!-- Info Section -->
     <div class="mt-12 text-center">
-      <p class="text-ash-500 text-sm max-w-2xl mx-auto">
+      <p class="text-ash-450 text-sm max-w-2xl mx-auto">
         Compatibility scores are based on traditional Chinese zodiac astrology, combining the characteristics of your animal sign with your elemental influence. Remember, astrology offers insights, but real relationships are built on understanding, communication, and mutual respect.
       </p>
     </div>

@@ -30,6 +30,7 @@
   --color-ash-200: #e5e5e5;
   --color-ash-300: #d4d4d4;
   --color-ash-400: #a3a3a3;
+  --color-ash-450: #8c8c8c; /* muted text: 5.3-5.9:1 on the dark base (WCAG AA) */
   --color-ash-500: #737373;
   --color-ash-600: #525252;
   --color-ash-700: #404040;

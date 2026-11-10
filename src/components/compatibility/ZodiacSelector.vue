@@ -117,7 +117,7 @@ function goWithBirthdate() {
     <div class="mt-8 text-center">
       <button
         @click="showBirthdate = !showBirthdate"
-        class="text-ash-500 hover:text-fire-400 transition-colors text-sm inline-flex items-center gap-1.5 group"
+        class="text-ash-450 hover:text-fire-400 transition-colors text-sm inline-flex items-center gap-1.5 group"
       >
         <span class="border-b border-dashed border-ash-600 group-hover:border-fire-400/50 pb-0.5">
           Don't know your sign?
@@ -147,7 +147,7 @@ function goWithBirthdate() {
                   v-model.number="birthYear"
                   class="w-full glass rounded-lg px-3 py-2.5 text-sm text-ash-100 bg-transparent appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-fire-500/50 focus:border-fire-500/50"
                 >
-                  <option :value="null" disabled class="bg-ash-900 text-ash-500">Year</option>
+                  <option :value="null" disabled class="bg-ash-900 text-ash-450">Year</option>
                   <option
                     v-for="y in yearOptions"
                     :key="y"
@@ -163,7 +163,7 @@ function goWithBirthdate() {
                   v-model.number="birthMonth"
                   class="w-full glass rounded-lg px-3 py-2.5 text-sm text-ash-100 bg-transparent appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-fire-500/50 focus:border-fire-500/50"
                 >
-                  <option :value="null" disabled class="bg-ash-900 text-ash-500">Month</option>
+                  <option :value="null" disabled class="bg-ash-900 text-ash-450">Month</option>
                   <option
                     v-for="(m, i) in months"
                     :key="i"
@@ -179,7 +179,7 @@ function goWithBirthdate() {
                   v-model.number="birthDay"
                   class="w-full glass rounded-lg px-3 py-2.5 text-sm text-ash-100 bg-transparent appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-fire-500/50 focus:border-fire-500/50"
                 >
-                  <option :value="null" disabled class="bg-ash-900 text-ash-500">Day</option>
+                  <option :value="null" disabled class="bg-ash-900 text-ash-450">Day</option>
                   <option
                     v-for="d in dayOptions"
                     :key="d"
@@ -204,7 +204,7 @@ function goWithBirthdate() {
                         </span>
                         {{ resultAnimalInfo.name }}!
                       </div>
-                      <div class="text-ash-500 text-xs">
+                      <div class="text-ash-450 text-xs">
                         Lunar year {{ birthdateResult.lunarYear }}
                       </div>
                     </div>

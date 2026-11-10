@@ -33,7 +33,7 @@ defineProps<{ items: Crumb[] }>()
         </span>
         <span
           v-if="index < items.length - 1"
-          class="text-ash-600"
+          class="text-ash-450"
           aria-hidden="true"
         >/</span>
       </li>

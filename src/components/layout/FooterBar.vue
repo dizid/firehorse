@@ -44,10 +44,10 @@ import { RouterLink } from 'vue-router'
       </div>
 
       <div class="mt-12 pt-8 border-t border-ash-800 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <p class="text-xs text-ash-500">
+        <p class="text-xs text-ash-450">
           &copy; 2026 FireHorse. Built with fire.
         </p>
-        <p class="text-xs text-ash-600">
+        <p class="text-xs text-ash-450">
           丙午 — Year of the Fire Horse
         </p>
       </div>
