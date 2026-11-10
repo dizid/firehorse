@@ -12,6 +12,8 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@fontsource/cinzel": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
     "@neondatabase/serverless": "^1.0.2",
     "@tailwindcss/typography": "^0.5.19",
     "@types/dompurify": "^3.0.5",
