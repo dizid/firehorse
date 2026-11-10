@@ -1,4 +1,5 @@
 import type { RouteRecordRaw, Router } from 'vue-router'
+import { reloadOnStaleChunks } from '@/lib/stale-chunk-reload'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -57,13 +58,8 @@ export function attachRouterHooks(router: Router) {
     }
   })
 
-  router.onError((error, to) => {
-    if (
-      typeof window !== 'undefined' &&
-      (error.message.includes('Failed to fetch dynamically imported module') ||
-        error.message.includes('Importing a module script failed'))
-    ) {
-      window.location.href = to.fullPath
-    }
-  })
+  // Tabs still open from before a deploy: reload the target page once (Chrome, Safari and
+  // Firefox error texts), with a 10 s guard so a truly missing file can't loop forever.
+  // attachRouterHooks only runs in the browser (main.ts, isClient).
+  reloadOnStaleChunks(router)
 }
