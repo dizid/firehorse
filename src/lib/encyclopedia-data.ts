@@ -168,11 +168,11 @@ In 1966, Japan experienced one of the most striking demographic events in modern
 
 The statistics are staggering:
 
-- **During the 1960s**, Japan's fertility rate was about 2.0 to 2.1 children per woman
-- **In 1966**, it dropped dramatically to 1.6 children per woman
-- **Total births fell** from approximately 1.58 million in 1965 to only 1.36 million in 1966
-- **Approximately 463,000 fewer babies** were born than expected
-- **The decline was 25-26%** in a single year
+- **Around 1966**, Japan's fertility rate was 2.14 children per woman in 1965 and 2.23 in 1967
+- **In 1966**, it dropped dramatically to 1.58 children per woman
+- **Total births fell** from 1,823,697 in 1965 to 1,360,974 in 1966, then rose to 1,935,647 in 1967 (Ministry of Health, Labour and Welfare counts)
+- **About 463,000 fewer babies** were born than in 1965; the sociologist Kikkawa Tōru estimates 1966 births at about 414,000 below what would have been expected
+- **The decline was about 25%** in a single year
 
 This created a visible "dent" in Japan's population pyramid that remains observable today.
 
@@ -506,7 +506,7 @@ The modern era brought the superstition to its dramatic peak. With access to bir
 - Delayed birth registration (births occurring in late 1966 or early 1967 sometimes registered in different years)
 - Since prenatal sex detection wasn't available, many families avoided conception entirely rather than risk having a Fire Horse daughter
 
-**The Result**: Approximately 463,000 fewer births than expected, a 25% drop creating a permanent visible "dent" in Japan's population pyramid.
+**The Result**: About 463,000 fewer births than in 1965 (1,360,974 against 1,823,697), a 25% drop creating a permanent visible "dent" in Japan's population pyramid.
 
 ## Impact on 1966 Fire Horse Women
 
