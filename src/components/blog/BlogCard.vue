@@ -7,11 +7,14 @@ defineProps<{
   post: BlogPost
 }>()
 
+// UTC: the prerendered HTML (built in UTC) and the visitor's browser must print the
+// same date, or hydration sees a mismatch for visitors in other time zones.
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
+    timeZone: 'UTC'
   })
 }
 </script>

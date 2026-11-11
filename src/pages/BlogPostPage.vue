@@ -4,6 +4,7 @@ import GlassCard from '@/components/ui/GlassCard.vue'
 import Breadcrumbs from '@/components/ui/Breadcrumbs.vue'
 import { useAnalytics } from '@/composables/useAnalytics'
 import { useSeo, useBreadcrumbSchema } from '@/composables/useSeo'
+import { renderMarkdown } from '@/lib/markdown'
 import type { BlogPost } from '@/types'
 
 // Blog posts live in Neon, not static data, so they need an explicit
@@ -62,6 +63,15 @@ try {
   fetchError = err instanceof Error ? err.message : 'An error occurred'
 }
 
+// Most posts are stored as HTML, but some database posts (e.g. welcome-to-firehorse)
+// are Markdown, which v-html showed as raw "##" text. Markdown goes through the same
+// renderer (marked + DOMPurify) as the encyclopedia.
+const contentHtml = post
+  ? post.content.trim().startsWith('<')
+    ? post.content
+    : renderMarkdown(post.content)
+  : ''
+
 // SEO + tracking run once, synchronously after the data resolves — this
 // executes during vite-ssg's prerender pass too, so per-post title,
 // description, canonical, and Article JSON-LD get baked into the static
@@ -87,11 +97,14 @@ if (post) {
   ])
 }
 
+// UTC: the prerendered HTML (built in UTC) and the visitor's browser must print the
+// same date, or hydration sees a mismatch for visitors in other time zones.
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
+    timeZone: 'UTC'
   })
 }
 </script>
@@ -185,7 +198,7 @@ function formatDate(date: string) {
           <!-- Post Content -->
           <div
             class="prose prose-invert prose-fire max-w-none"
-            v-html="post.content"
+            v-html="contentHtml"
           ></div>
         </GlassCard>
       </article>
