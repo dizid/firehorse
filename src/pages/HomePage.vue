@@ -28,7 +28,7 @@ const faqs = [
   {
     question: 'When is the next Fire Horse year?',
     answer:
-      '2026 is the next Fire Horse year, beginning with Chinese New Year on February 17, 2026. The Fire Horse last appeared in 1966 and won\'t return again until 2086.',
+      'The current Fire Horse year began with Chinese New Year on February 17, 2026 and runs until February 5, 2027 (in Japan, the hinoeuma year is calendar 2026). The one before was 1966, and the next one comes in 2086.',
   },
   {
     question: 'What are Fire Horse personality traits?',
