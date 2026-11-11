@@ -18,7 +18,7 @@ The Fire Horse (Hinoeuma in Japanese, 丙午 Bǐngwǔ in Chinese) is not simply 
 
 ## The Sexagenary Cycle
 
-Ancient Chinese astrology operates on a 60-year cycle known as the sexagenary cycle (干支, gānzhī), a system dating back to at least the Shang Dynasty (c. 1600–1046 BCE). Inscriptions on oracle bones from this period reveal its use in recording days and years. By the Han Dynasty (206 BCE–220 CE), the 60-year cycle was fully integrated into the official calendar and remained central to Chinese timekeeping for millennia.
+Ancient Chinese astrology operates on a 60-year cycle known as the sexagenary cycle (干支, gānzhī), a system dating back to at least the Shang Dynasty (c. 1600–1046 BCE). Inscriptions on oracle bones from this period show it used for numbering days; counting years with the cycle came much later. By the Han Dynasty (206 BCE–220 CE), the 60-year cycle was fully integrated into the official calendar and remained central to Chinese timekeeping for millennia.
 
 This sophisticated system combines two rotating sequences:
 
@@ -45,11 +45,11 @@ When Fire meets Horse — already associated with fire energy even in non-Fire y
 
 Interestingly, the Fire Horse is viewed very differently across East Asian cultures:
 
-**Chinese Tradition**: Generally positive, viewing the Fire Horse as powerful and auspicious. The energy represents visionary leadership, transformation, and yang power at its peak. These traits have been associated with successful rulers and military leaders throughout Chinese history.
+**Chinese Tradition**: Mixed. The energy is read as visionary leadership, transformation, and yang power at its peak, but some traditional texts also see the doubled fire of 丙午 as too strong: a symbol of change and calamity, the "red horse" of the "Red Horse, Red Sheep" (赤馬紅羊劫) belief. Unlike in Japan, there is no belief that Fire Horse women are dangerous.
 
 **Japanese Tradition**: Developed specific negative superstitions, particularly about women born in Fire Horse years, believing them to be too strong-willed and dangerous for traditional family structures.
 
-**Korean and Vietnamese Traditions**: The sexagenary cycle is used in Korea (though the Korean zodiac includes the Sheep instead of Goat), while Vietnam has unique modifications including replacing the Rabbit with the Cat. Both cultures recognize Fire Horse years but without the extreme Japanese superstitions.
+**Korean and Vietnamese Traditions**: The sexagenary cycle is used in Korea (though the Korean zodiac includes the Sheep instead of Goat), while Vietnam has unique modifications including replacing the Rabbit with the Cat. Neither has the Japanese Fire Horse superstition, although Korea had its own stigma about girls born in the White (Metal) Horse year, 1990.
 
 ## The 60-Year Return
 
@@ -197,19 +197,18 @@ As the Fire Horse year approached, Japanese families took extraordinary measures
 **During 1966**:
 - Widespread use of contraception
 - Delayed marriage
-- Increased induced abortions (medical studies documented this)
-- Delayed birth registration (some births in late 1966 or early 1967 were registered in different years)
-- Since sex detection during pregnancy was not available then, many families avoided having children altogether
+- Possibly induced abortion (a 1975 study reported a rise; the sociologist Kikkawa Tōru finds no evidence that abortions increased in 1966)
+- Since the sex of a baby could not be known in advance, couples who already had children delayed or skipped further pregnancies; 1966 had the highest share of first children among all births since records began
 
 **Post-1966 (1967)**: The birth rate surged as couples compensated for the avoided Fire Horse year.
 
 ## Historical Context
 
-This wasn't Japan's first encounter with Fire Horse superstition. In 1846, 1906, and 1966 — the last three Fire Horse years — Japan's birth rate dropped significantly, though 1906's impact was less measurable in a pre-industrial society with limited birth control access.
+This wasn't Japan's first encounter with Fire Horse superstition, but it was the first big dip. Kikkawa Tōru writes that the statistics show no noticeable dip in births in 1846 or 1906 (vital statistics put 1906 about 4% below 1905), although women born in 1906 later found it hard to marry.
 
 The superstition likely originated from several sources:
 
-1. **The Yamauba Legend**: A folk tale about a mountain witch (Yamauba or 山姥) who lived alone in mountain huts. These witches would offer travelers shelter, then transform into their true demonic form and try to eat their guests late at night. The legend became conflated with Fire Horse women.
+1. **An Early Edo Fire Belief**: Before it was a belief about women, an early Edo-period saying held that there are many fires in a Fire Horse year.
 
 2. **The Oshichi Story**: In 1683 a greengrocer's daughter in Edo, Yaoya Oshichi, was executed for arson. Later retellings placed her birth in 1666, a Fire Horse year (her real birth year is uncertain), and the story, a favorite of puppet theater, tied Fire Horse women to fire and danger. [The full story](/blog/yaoya-oshichi-fire-horse-curse-origin).
 
@@ -225,9 +224,9 @@ Ironically, women who were born in 1966 faced unique challenges but also unexpec
 
 **Smaller Cohort Advantage**: Being part of a smaller generation meant less competition for schools, jobs, and resources throughout their lives.
 
-**Higher Achievement**: Studies show 1966 cohort women achieved higher education levels and career success than surrounding cohorts, possibly because they had to prove themselves or felt less pressure to conform to traditional expectations.
+**Mixed Evidence**: Research on the 1966 cohort has looked mainly at its smaller size and the marriage market. Evidence of a clear education or career advantage is thin; one summary reports no significant difference in college entrance rates for that school year.
 
-**Modern Independence**: Many 1966 Fire Horses became independent, successful women who thrived in Japan's evolving economy, entering careers in business, arts, and politics at higher rates than expected.
+**Modern Independence**: Many 1966 Fire Horses became independent, successful women in Japan's evolving economy.
 
 **Self-Fulfilling Liberation**: Some scholars suggest that being born "unlucky" paradoxically freed these women from traditional expectations, allowing greater freedom to pursue non-traditional paths.
 
@@ -250,7 +249,7 @@ The 1966 Fire Horse phenomenon is studied worldwide as a textbook case of:
 - **Gender Studies**: Cultural attitudes toward female power and independence
 - **Public Health**: How cultural beliefs shape family planning choices
 
-The World Bank, academic journals, and major universities have published research analyzing this event.
+The World Bank's data blog, academic papers, and university researchers have analyzed this event.
 
 ## The Chinese Contrast
 
@@ -281,7 +280,7 @@ The 1966 phenomenon remains a fascinating historical moment when ancient superst
     category: 'culture',
     excerpt: 'In Chinese tradition, the Fire Horse represents powerful, auspicious energy symbolizing leadership, transformation, and yang power at its peak — a stark contrast to Japanese superstitions.',
     content: `
-In Chinese culture, the Fire Horse (Bǐngwǔ, 丙午) occupies a powerful and generally positive position in the astrological hierarchy. Unlike the Japanese Hinoeuma superstitions, Chinese tradition views this rare combination as auspicious and strong, though demanding proper respect and understanding.
+In Chinese culture, the Fire Horse (Bǐngwǔ, 丙午) occupies a powerful position in the astrological hierarchy. Unlike the Japanese Hinoeuma superstitions, Chinese tradition has no fear of Fire Horse women; it reads the combination as strong, and some older texts also as turbulent.
 
 ## Traditional Chinese Perspective
 
@@ -310,7 +309,7 @@ The Fire element in its yang form (丙, bǐng) represents:
 
 ### Imperial Connections
 
-Throughout Chinese dynastic history, Fire Horse characteristics — decisive action, bold leadership, commanding presence — aligned with idealized imperial qualities. Ancient Chinese almanacs specifically noted Fire Horse years, recognizing the powerful energies they would bring. Rather than warnings, these were preparations for harnessing transformative potential.
+Throughout Chinese dynastic history, Fire Horse characteristics — decisive action, bold leadership, commanding presence — aligned with idealized imperial qualities. Older Chinese texts also carried a darker reading: some held that the fire of 丙午 is too strong, making it a symbol of change and calamity (the "red horse" of the "Red Horse, Red Sheep" belief), and lists of 丙午 years include 1126, when the Northern Song capital fell. Many today see this as selective reading of history.
 
 ### Artistic Tradition
 
@@ -465,7 +464,7 @@ The infamous saying: "丙午の女は男を食う" (Hinoeuma no onna wa otoko wo
 
 The superstition emerged from multiple cultural threads:
 
-**The Yamauba Legend**: Yamauba (山姥) are mountain witches in Japanese folklore — old women with unkempt golden-white hair living alone in mountain huts. According to yokai (supernatural creature) mythology, these witches would offer weary travelers shelter and food, then transform late at night into their true demonic form with a mouth stretching the entire width of their face, attempting to catch and eat their guests. Some versions give them a second mouth at the top of their head. This terrifying folklore became conflated with Fire Horse women through cultural association.
+**An Early Edo Fire Belief**: The earliest form of the superstition was about fire, not women: an early Edo-period saying held that there are many fires in a Fire Horse year. A "malicious story" that Fire Horse women were hot-tempered and would "eat their husbands alive" then spread through puppet theater and popular books, as the sociologist Kikkawa Tōru puts it.
 
 **The Oshichi Connection**: A 1683 arson case in Edo (Tokyo) became attached to the Fire Horse sign. The young woman executed for it, Yaoya Oshichi, was said in later retellings to have been born in 1666, a Fire Horse year, although her real birth year is uncertain. This created literal fears that Fire Horse women would "burn down" homes. [The full story](/blog/yaoya-oshichi-fire-horse-curse-origin).
 
@@ -483,17 +482,11 @@ The superstition served as a powerful social control mechanism:
 
 **Oral Tradition**: Mothers warned daughters, neighbors gossiped, and extended families exerted pressure. The belief was reinforced through every level of social interaction.
 
-**Theater and Popular Culture**: Kabuki plays and popular stories featured Fire Horse women as cautionary figures, embedding the superstition deeper into collective consciousness.
+**Theater and Popular Culture**: Puppet theater (ningyō jōruri) and popular books retold the Oshichi story and similar tales, embedding the superstition deeper into collective consciousness.
 
 ## The 1906 Fire Horse Year
 
-Japan's previous Fire Horse year left less documented impact due to:
-- Lower literacy rates and fewer demographic records
-- Limited access to modern birth control methods
-- More rural, agricultural society with less ability to "plan" births precisely
-- Less centralized communication spreading the superstition
-
-However, oral histories suggest similar concerns existed, with families worried about Fire Horse daughters and some attempts to time births around the Fire Horse year.
+Japan's previous Fire Horse year left a much smaller mark on births: vital statistics put 1906 about 4% below 1905, and some boys' births were reportedly registered in the year before or after. The superstition hit later: around 1925, when the women born in 1906 reached marrying age, many found it difficult to get married, and a number of unmarried women died by suicide.
 
 ## The 1966 Demographic Crisis
 
@@ -502,9 +495,8 @@ The modern era brought the superstition to its dramatic peak. With access to bir
 **Methods Used**:
 - Widespread contraception
 - Delayed marriage timing
-- Induced abortion (documented in medical literature)
-- Delayed birth registration (births occurring in late 1966 or early 1967 sometimes registered in different years)
-- Since prenatal sex detection wasn't available, many families avoided conception entirely rather than risk having a Fire Horse daughter
+- Possibly induced abortion (a 1975 study reported a rise; Kikkawa Tōru finds no evidence of an increase)
+- Since prenatal sex detection wasn't available, couples who already had children delayed or skipped further pregnancies; first births held up
 
 **The Result**: About 463,000 fewer births than in 1965 (1,360,974 against 1,823,697), a 25% drop creating a permanent visible "dent" in Japan's population pyramid.
 
@@ -524,7 +516,7 @@ Women actually born in 1966 experienced paradoxical realities:
 
 **Freedom from Expectations**: Being "cursed" paradoxically freed some women from crushing expectations to conform. If they were already considered unsuitable wives, they faced less pressure to sacrifice career goals.
 
-**Higher Achievement**: Studies documented that 1966 cohort women achieved higher education levels and career success than surrounding cohorts. They entered business, arts, politics, and professional fields at higher rates.
+**Mixed Evidence**: Claims that the 1966 cohort achieved more are not well supported; one summary reports no significant difference in college entrance rates for that school year.
 
 **Smaller Cohort Advantages**: Less competition for educational slots, jobs, and resources throughout their lifecycle.
 
@@ -581,7 +573,7 @@ Some progressive Japanese parents may actually seek Fire Horse children, viewing
 - Unique and special rather than cursed
 - A way to consciously reject outdated superstitions
 
-The Japan Times and other major media outlets have published articles discussing whether the "Fire Horse curse" might finally be broken in 2026, with most experts predicting minimal to no birth rate impact.
+Before 2026, scholars and commentators widely expected little or no effect on births.
 
 ## Cultural Products and Representations
 
@@ -873,11 +865,10 @@ The Fire Horse has inspired more myths, superstitions, and cultural anxieties th
 
 **Origins**:
 - A 1683 arson case in Edo (Yaoya Oshichi), whose young culprit later retellings said was born in a Fire Horse year
-- The Yamauba (山姥, mountain witch) folklore becoming conflated with Fire Horse energy
 - Deep patriarchal fear of strong, independent women who might challenge male authority
 - Misinterpretation of legitimate astrological observations about Fire Horse independence
 
-**Reality**: There is zero statistical evidence that Fire Horse women's husbands die younger than average. Multiple demographic studies in Japan found no correlation between a wife's birth in 1966 and her husband's lifespan. The myth reflects cultural anxiety about female power, not any actual danger.
+**Reality**: There is zero statistical evidence that Fire Horse women's husbands die younger than average. The myth reflects cultural anxiety about female power, not any actual danger.
 
 **Modern Interpretation**: Fire Horse women may indeed challenge dominant partners and resist submission, which in rigidly patriarchal contexts was metaphorically interpreted as "killing" the husband's authority rather than his physical body. The "danger" was to male dominance, not male survival.
 
@@ -889,7 +880,6 @@ The Fire Horse has inspired more myths, superstitions, and cultural anxieties th
 - The 1683 Oshichi arson case in Edo (her birth year is uncertain; retellings made her a 1666 Fire Horse)
 - Literal interpretation of "fire" energy as destructive burning
 - Fear of disruption to family harmony and traditional structures
-- The Yamauba folklore where mountain witches represented chaos
 
 **Reality**: Fire Horses are no more likely to commit arson than anyone else. No statistical correlation exists between Fire Horse births and fire-related incidents. The metaphorical "burning down" refers to challenging family structures and traditional patterns, which Fire Horses may indeed do through their independence.
 
@@ -904,7 +894,7 @@ The Fire Horse has inspired more myths, superstitions, and cultural anxieties th
 - Fear that Fire Horse energy — passionate, independent, bold — is fundamentally incompatible with maternal gentleness
 - Patriarchal anxiety about women modeling independence for children
 
-**Reality**: Fire Horse women parent differently but not worse. Studies comparing 1966 Fire Horse mothers to surrounding cohorts found no negative outcomes for their children. If anything, their children often displayed higher independence, creativity, and achievement.
+**Reality**: Fire Horse women parent differently but not worse. Nothing suggests Fire Horse women are worse mothers; the belief rested on stereotypes, not evidence.
 
 **Parenting Characteristics**:
 - Encourage independence in their children rather than dependency
@@ -1026,9 +1016,9 @@ The astrological observations about Fire Horse temperament were accurate. The cu
 
 The Fire Horse superstitions were primarily Japanese, revealing their cultural rather than astrological nature:
 
-**China**: No equivalent fear of Fire Horse women. The same traits are viewed positively as leadership and strength.
+**China**: No equivalent fear of Fire Horse women. (Some older texts linked 丙午 years to upheaval, but not to the character of women.)
 
-**Korea**: Uses the same sexagenary cycle but without extreme Fire Horse stigma.
+**Korea**: Uses the same sexagenary cycle and has no Fire Horse stigma, but it had its own superstition about girls born in the White (Metal) Horse year, 1990, when 116.5 boys were born per 100 girls.
 
 **Vietnam**: Modified zodiac (Cat instead of Rabbit) but no Fire Horse superstitions.
 
@@ -1058,7 +1048,7 @@ Modern scholars and feminists have reinterpreted the Yamauba folklore:
 
 **Modern View**: Independent woman who chose to live alone on her own terms, demonized by patriarchal society for refusing to serve men. Her "eating" of men represents rejection of traditional female subservience.
 
-Some versions of Yamauba folklore show her as helpful, giving treasure to kind visitors and only cursing the ill-mannered. This complexity was lost when the figure was simplified into pure evil and conflated with Fire Horse women.
+Some versions of Yamauba folklore show her as helpful, giving treasure to kind visitors and only cursing the ill-mannered. This complexity was lost when the figure was simplified into pure evil. (No source links the Yamauba to the Fire Horse superstition itself; it is a parallel story about feared independent women.)
 
 ## The 2026 Generation
 
@@ -1121,11 +1111,11 @@ The 2026 Fire Horse generation will enter a world unrecognizable to their 1966 a
 
 **China**: Attitudes are increasingly positive, with many parents viewing Fire Horse births as auspicious for producing future leaders. In a rapidly changing society valuing innovation and bold leadership, Fire Horse children are seen as perfectly suited for future challenges. Chinese parents are aware that the 2026 generation will come of age around 2044-2046, precisely when China will need visionary leaders and innovative thinkers.
 
-**Japan**: Dramatically shifted from 1966. Younger Japanese parents (born in the 1980s-2000s) largely reject old superstitions. The Japan Times and major media outlets have published articles questioning whether the "Fire Horse curse" will have any effect in 2026, with experts predicting minimal to no birth rate impact. Urban, educated Japanese view the 1966 phenomenon as an embarrassing historical episode to avoid repeating.
+**Japan**: Dramatically shifted from 1966. Younger Japanese parents (born in the 1980s-2000s) largely reject old superstitions. Before the year began, scholars and commentators widely expected little or no effect on births. Urban, educated Japanese view the 1966 phenomenon as an embarrassing historical episode to avoid repeating.
 
 **Korea**: Mixed attitudes but trending positive, especially among educated urban families. The saying about Horse sign women being "too strong for marriage" is increasingly challenged by younger generations who value female strength.
 
-**Southeast Asia**: Vietnam and other Southeast Asian countries using the zodiac generally view Fire Horse positively, with the sign seen as powerful and lucky. The 2026 Fire Horse (Bính Ngọ) is associated with the Fire-Fire combination "Lưỡng Hỏa thành Viêm," traditionally linked to enthusiasm, creativity, and motivation.
+**Southeast Asia**: Vietnam and other Southeast Asian countries using the zodiac generally view Fire Horse positively, with the sign seen as powerful and lucky. In Vietnamese reckoning the 2026 Fire Horse (Bính Ngọ) belongs to the "Thiên Hà Thủy" (Heavenly River Water) sound element, even though both its stem and branch are fire.
 
 ### Western Countries
 
