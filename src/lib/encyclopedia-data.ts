@@ -795,13 +795,14 @@ Gordon Ramsay built a global restaurant empire and became one of the world's mos
 ### Other Notable 1966 Fire Horses
 
 - **Adam Sandler** (September 9, 1966): Comedian, actor, independent film producer
-- **Patrick Dempsey** (January 13, 1966): Actor known for independent spirit
 - **Kiefer Sutherland** (December 21, 1966): Actor, producer, musician
 - **David Schwimmer** (November 2, 1966): Actor, director, activist
 - **Robin Wright** (April 8, 1966): Actress, director known for strong roles
 - **Julianna Margulies** (June 8, 1966): Actress and advocate
 - **David Cameron** (October 9, 1966): Former UK Prime Minister
 - **Luke Perry** (October 11, 1966-2019): Actor and cultural icon
+
+**Not a Fire Horse**: lists online often include people born in early January 1966, such as the actor Patrick Dempsey (January 13, 1966). The Fire Horse year only began at Lunar New Year on January 21, 1966, so anyone born from January 1 to 20, 1966 is a Wood Snake.
 
 ## Common Patterns Among Famous Fire Horses
 

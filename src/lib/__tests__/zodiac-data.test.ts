@@ -222,3 +222,26 @@ describe('calculateCompatibility', () => {
     }
   })
 })
+
+// ============================================
+// Famous Fire Horses article: every listed birth date is in a Fire Horse year
+// (a person born before Lunar New Year belongs to the previous sign, e.g.
+// Patrick Dempsey, 13 January 1966, is a Wood Snake)
+// ============================================
+describe('famous Fire Horses article', () => {
+  it('only lists people born inside a Fire Horse year', async () => {
+    const { getArticleBySlug } = await import('@/lib/encyclopedia-data')
+    const article = getArticleBySlug('famous-fire-horses')!
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    // "**Born**: June 3, 1906" and "- **Name** (December 19, 1906): ..." (the "Not a Fire Horse" note is excluded)
+    const listed = article.content
+      .split('\n')
+      .filter((line) => !line.startsWith('**Not a Fire Horse**'))
+      .flatMap((line) => [...line.matchAll(/(?:\*\*Born\*\*: |\*\* \()([A-Z][a-z]+) (\d{1,2}), (\d{4})/g)])
+    expect(listed.length).toBeGreaterThanOrEqual(20)
+    for (const [text, monthName, day, year] of listed) {
+      const sign = getZodiacFromBirthdate(Number(year), months.indexOf(monthName!) + 1, Number(day))
+      expect(`${sign.element} ${sign.animal}`, text).toBe('fire horse')
+    }
+  })
+})
