@@ -184,7 +184,7 @@ function formatDate(date: string) {
               <span>{{ post.readTime }} min read</span>
             </div>
 
-            <div class="flex gap-2">
+            <div class="flex flex-wrap gap-2">
               <span
                 v-for="tag in post.tags"
                 :key="tag"
