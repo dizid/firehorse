@@ -258,7 +258,9 @@ Notably, there is no equivalent stigma against Fire Horse women in China, where 
 
 ## 2026: Will History Repeat?
 
-As the next Fire Horse year approaches in February 2026, demographers predict a very different outcome:
+**Update, November 2026:** the first official figures say no. Japan's health ministry counted 342,068 births from January to June 2026, 0.8% more than a year earlier (320,458 counting only Japanese nationals in Japan, up 0.4%): the first first-half rise in 11 years, not a dip. [The 2026 numbers, compared with 1966](/blog/hinoeuma-2026-japan-births).
+
+Before the year began, demographers predicted a very different outcome from 1966:
 
 **Unlikely to Repeat** because:
 - Japan's birth rate is already critically low for other reasons
@@ -557,11 +559,13 @@ Some modern Japanese feminists have actively reclaimed the Fire Horse as a symbo
 
 ## The 2026 Question
 
-As Japan approaches the next Fire Horse year (February 17, 2026 – February 5, 2027), demographers and sociologists are watching closely. Will history repeat?
+**Update, November 2026:** history did not repeat in the first half of the year. Japan's health ministry counted 342,068 births from January to June 2026, 0.8% more than a year earlier (320,458 counting only Japanese nationals in Japan, up 0.4%). [The 2026 numbers, compared with 1966](/blog/hinoeuma-2026-japan-births).
+
+Before 2026 (in Japan the zodiac year runs with the calendar year, from 1 January), demographers and sociologists asked whether history would repeat.
 
 ### Predictions: Unlikely to Repeat
 
-**Demographic Reality**: Japan's birth rate is already critically low (around 1.3 children per woman) for reasons unrelated to astrology — economic pressure, work culture, childcare costs, and changing social values. There's little room for further decline.
+**Demographic Reality**: Japan's birth rate is already critically low (1.15 children per woman in 2024, a record low) for reasons unrelated to astrology — economic pressure, work culture, childcare costs, and changing social values. There's little room for further decline.
 
 **Generational Shift**: Japanese citizens born in the 1980s-2000s — now the primary childbearing demographic — largely reject old superstitions. They view the 1966 phenomenon as a shameful episode to avoid repeating.
 
@@ -1178,6 +1182,8 @@ According to Chinese astrology forecasts for the 2026 Fire Horse year:
 **Relationship Energy**: Fire Horse energy makes imbalanced relationships very obvious, prompting necessary endings and authentic new beginnings.
 
 ## Demographic Predictions
+
+**Update, November 2026:** so far the forecast holds. In Japan, where the 1966 drop happened, births from January to June 2026 were 0.8% higher than a year earlier (342,068), the first first-half rise in 11 years. [The 2026 numbers, compared with 1966](/blog/hinoeuma-2026-japan-births).
 
 ### No Birth Rate Drop Expected
 
