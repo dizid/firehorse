@@ -211,7 +211,7 @@ The superstition likely originated from several sources:
 
 1. **The Yamauba Legend**: A folk tale about a mountain witch (Yamauba or 山姥) who lived alone in mountain huts. These witches would offer travelers shelter, then transform into their true demonic form and try to eat their guests late at night. The legend became conflated with Fire Horse women.
 
-2. **The Oshichi Story**: A 16th-century arson case in Edo involving a young woman became wrongly associated with Fire Horse births, creating a literal fear that Fire Horse women would "burn down" homes.
+2. **The Oshichi Story**: In 1683 a greengrocer's daughter in Edo, Yaoya Oshichi, was executed for arson. Later retellings placed her birth in 1666, a Fire Horse year (her real birth year is uncertain), and the story, a favorite of puppet theater, tied Fire Horse women to fire and danger. [The full story](/blog/yaoya-oshichi-fire-horse-curse-origin).
 
 3. **Patriarchal Anxiety**: In highly structured Edo-period Japan (1603-1868), women were expected to be obedient, gentle, and submissive. The Fire Horse's independent, powerful energy directly threatened this social order.
 
@@ -467,7 +467,7 @@ The superstition emerged from multiple cultural threads:
 
 **The Yamauba Legend**: Yamauba (山姥) are mountain witches in Japanese folklore — old women with unkempt golden-white hair living alone in mountain huts. According to yokai (supernatural creature) mythology, these witches would offer weary travelers shelter and food, then transform late at night into their true demonic form with a mouth stretching the entire width of their face, attempting to catch and eat their guests. Some versions give them a second mouth at the top of their head. This terrifying folklore became conflated with Fire Horse women through cultural association.
 
-**The Oshichi Connection**: A 16th-century arson case in Edo (Tokyo) involving a young woman became attached to the Fire Horse sign, even though the woman wasn't actually born in a Fire Horse year. This created literal fears that Fire Horse women would "burn down" homes.
+**The Oshichi Connection**: A 1683 arson case in Edo (Tokyo) became attached to the Fire Horse sign. The young woman executed for it, Yaoya Oshichi, was said in later retellings to have been born in 1666, a Fire Horse year, although her real birth year is uncertain. This created literal fears that Fire Horse women would "burn down" homes. [The full story](/blog/yaoya-oshichi-fire-horse-curse-origin).
 
 **Edo-Period Patriarchy**: During the Edo period (1603-1868), Japan developed highly rigid social structures. Women were expected to be obedient, gentle, and submissive — embodying pure yin qualities. The Fire Horse's independent, powerful yang energy directly threatened this patriarchal social order.
 
@@ -871,7 +871,7 @@ The Fire Horse has inspired more myths, superstitions, and cultural anxieties th
 **The Superstition**: The most infamous belief, primarily in Japan, held that women born in Fire Horse years would cause their husbands' early death, either literally (through violence or supernatural curse) or metaphorically (through domination and emasculation that destroyed male authority).
 
 **Origins**:
-- A 16th-century arson case in Edo wrongly associated with a Fire Horse woman
+- A 1683 arson case in Edo (Yaoya Oshichi), whose young culprit later retellings said was born in a Fire Horse year
 - The Yamauba (山姥, mountain witch) folklore becoming conflated with Fire Horse energy
 - Deep patriarchal fear of strong, independent women who might challenge male authority
 - Misinterpretation of legitimate astrological observations about Fire Horse independence
@@ -885,7 +885,7 @@ The Fire Horse has inspired more myths, superstitions, and cultural anxieties th
 **The Superstition**: Fire Horse individuals, particularly women, were believed to literally set homes on fire or metaphorically destroy families through their wild, uncontrollable nature.
 
 **Origins**:
-- The Oshichi arson case in Edo (though she wasn't actually a Fire Horse)
+- The 1683 Oshichi arson case in Edo (her birth year is uncertain; retellings made her a 1666 Fire Horse)
 - Literal interpretation of "fire" energy as destructive burning
 - Fear of disruption to family harmony and traditional structures
 - The Yamauba folklore where mountain witches represented chaos
