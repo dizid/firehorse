@@ -9,9 +9,10 @@
 import hinoeuma2026Births from './posts/hinoeuma-2026-japan-births.mjs'
 import born1966TurnSixty from './posts/born-1966-turn-60-fire-horse-year.mjs'
 import yaoyaOshichi from './posts/yaoya-oshichi-fire-horse-curse-origin.mjs'
+import koreaWhiteHorse from './posts/korea-white-horse-1990-girls.mjs'
 
 /** @type {import('./blog-posts.d.mts').CodeBlogPost[]} */
-export const CODE_BLOG_POSTS = [hinoeuma2026Births, born1966TurnSixty, yaoyaOshichi]
+export const CODE_BLOG_POSTS = [hinoeuma2026Births, born1966TurnSixty, yaoyaOshichi, koreaWhiteHorse]
 
 /**
  * The code post with this slug, or null.
