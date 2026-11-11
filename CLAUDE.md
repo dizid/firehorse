@@ -29,6 +29,8 @@ Do NOT use `netlify dev` — the `@netlify/vite-plugin` handles Netlify Function
 1 serverless function, exports a `config` object with its route path:
 - `blog-posts.ts` → `/api/blog/posts`
 
+Blog posts live in two places: the `blog_posts` table, and code posts in `src/content/posts/*.mjs` (listed in `src/content/blog-posts.mjs`; publishing one needs no DB change). The API, both blog pages' prerender path, `vite.config.ts` (routes) and `scripts/generate-sitemap.mjs` merge them; a code post wins on a slug clash. Content is HTML with only p/h2/h3/strong/em/a/blockquote (lists and tables are unstyled); tests in `src/lib/__tests__/blog-posts.test.ts` enforce that plus links and lengths.
+
 Uses `neon()` from `@neondatabase/serverless` directly.
 
 ### Database

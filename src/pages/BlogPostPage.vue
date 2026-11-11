@@ -13,6 +13,11 @@ import type { BlogPost } from '@/types'
 // as vite.config.ts's includedRoutes and scripts/generate-sitemap.mjs); in
 // the browser we keep using the API route as before.
 async function fetchPostFromDb(slug: string): Promise<BlogPost | null> {
+  // Code posts (src/content/blog-posts.mjs) need no database
+  const { getCodeBlogPost } = await import('@/content/blog-posts.mjs')
+  const codePost = getCodeBlogPost(slug)
+  if (codePost) return codePost
+
   const { getDb } = await import('@/lib/db')
   const sql = getDb()
   const [post] = await sql`

@@ -1,21 +1,33 @@
 import type { Context } from "@netlify/functions"
 import { neon } from '@neondatabase/serverless'
+// Relative import: the `@/` alias only works in Vite, not in the functions bundle
+import { codeBlogPostSummaries, getCodeBlogPost, mergeBlogPosts } from '../../src/content/blog-posts.mjs'
 
-export default async (req: Request, context: Context) => {
+/** Posts per page (BlogPage.vue uses the same number) */
+const PAGE_SIZE = 12
+
+function json(body: unknown, status: number) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { 'Content-Type': 'application/json' }
+  })
+}
+
+export default async (req: Request, _context: Context) => {
   if (req.method !== 'GET') {
-    return new Response(JSON.stringify({ error: 'Method not allowed' }), {
-      status: 405,
-      headers: { 'Content-Type': 'application/json' }
-    })
+    return json({ error: 'Method not allowed' }, 405)
   }
 
   try {
-    const sql = neon(process.env.DATABASE_URL!)
     const url = new URL(req.url)
     const slug = url.searchParams.get('slug')
 
-    // Single post by slug
+    // Single post by slug. Code posts (src/content/blog-posts.mjs) need no database.
     if (slug) {
+      const codePost = getCodeBlogPost(slug)
+      if (codePost) return json(codePost, 200)
+
+      const sql = neon(process.env.DATABASE_URL!)
       const [post] = await sql`
         SELECT
           id,
@@ -34,13 +46,10 @@ export default async (req: Request, context: Context) => {
       `
 
       if (!post) {
-        return new Response(JSON.stringify({ error: 'Post not found' }), {
-          status: 404,
-          headers: { 'Content-Type': 'application/json' }
-        })
+        return json({ error: 'Post not found' }, 404)
       }
 
-      const formattedPost = {
+      return json({
         id: post.id,
         slug: post.slug,
         title: post.title,
@@ -51,20 +60,16 @@ export default async (req: Request, context: Context) => {
         tags: post.tags,
         readTime: post.read_time,
         publishedAt: post.published_at
-      }
-
-      return new Response(JSON.stringify(formattedPost), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      })
+      }, 200)
     }
 
-    // List of posts
-    const page = parseInt(url.searchParams.get('page') || '1')
-    const limit = 12
-    const offset = (page - 1) * limit
+    // List of posts: every published database post (a handful of rows) merged
+    // with the code posts, newest first, then one page of PAGE_SIZE.
+    const pageNumber = parseInt(url.searchParams.get('page') || '1')
+    const page = Number.isFinite(pageNumber) && pageNumber > 0 ? pageNumber : 1
 
-    const posts = await sql`
+    const sql = neon(process.env.DATABASE_URL!)
+    const rows = await sql`
       SELECT
         id,
         slug,
@@ -77,18 +82,9 @@ export default async (req: Request, context: Context) => {
         published_at
       FROM blog_posts
       WHERE is_published = true
-      ORDER BY published_at DESC
-      LIMIT ${limit}
-      OFFSET ${offset}
     `
 
-    const [{ count }] = await sql`
-      SELECT COUNT(*)::int AS count
-      FROM blog_posts
-      WHERE is_published = true
-    `
-
-    const formattedPosts = posts.map(post => ({
+    const databasePosts = rows.map(post => ({
       id: post.id,
       slug: post.slug,
       title: post.title,
@@ -100,21 +96,18 @@ export default async (req: Request, context: Context) => {
       publishedAt: post.published_at
     }))
 
-    return new Response(JSON.stringify({
-      posts: formattedPosts,
-      total: count,
+    const allPosts = mergeBlogPosts(databasePosts, codeBlogPostSummaries())
+    const total = allPosts.length
+
+    return json({
+      posts: allPosts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE),
+      total,
       page,
-      totalPages: Math.ceil(count / limit)
-    }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
-    })
+      totalPages: Math.max(1, Math.ceil(total / PAGE_SIZE))
+    }, 200)
   } catch (error) {
     console.error('Error fetching blog posts:', error)
-    return new Response(JSON.stringify({ error: 'Failed to fetch blog posts' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
-    })
+    return json({ error: 'Failed to fetch blog posts' }, 500)
   }
 }
 

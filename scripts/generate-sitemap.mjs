@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { writeFileSync, readFileSync, existsSync } from 'node:fs'
 import { neon } from '@neondatabase/serverless'
+import { CODE_BLOG_POSTS } from '../src/content/blog-posts.mjs'
 
 // Load .env.local if present (Netlify build supplies env vars directly).
 if (existsSync('.env.local')) {
@@ -68,7 +69,14 @@ function urlBlock(loc, lastmod, changefreq, priority) {
 }
 
 async function main() {
-  const blogPosts = await fetchBlogPosts()
+  // Database posts plus the code posts in src/content/blog-posts.mjs (code post
+  // wins on a slug clash), in the database row shape used below.
+  const codePosts = CODE_BLOG_POSTS.map((p) => ({ slug: p.slug, published_at: p.publishedAt }))
+  const codeSlugs = new Set(codePosts.map((p) => p.slug))
+  const blogPosts = [
+    ...codePosts,
+    ...(await fetchBlogPosts()).filter((p) => !codeSlugs.has(p.slug)),
+  ]
 
   const blocks = [
     ...STATIC_ROUTES.map((r) =>

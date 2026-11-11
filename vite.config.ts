@@ -5,6 +5,7 @@ import netlify from '@netlify/vite-plugin'
 import { fileURLToPath, URL } from 'node:url'
 import { readFileSync, existsSync } from 'node:fs'
 import { neon } from '@neondatabase/serverless'
+import { CODE_BLOG_POSTS } from './src/content/blog-posts.mjs'
 
 // Load .env.local for the build-time SSG step (Netlify CI provides env vars directly)
 if (existsSync('.env.local')) {
@@ -67,7 +68,8 @@ export default defineConfig({
       )
     },
     async includedRoutes(paths: string[]) {
-      const blogSlugs = await getBlogSlugs()
+      // Database posts plus the code posts in src/content/blog-posts.mjs, once each
+      const blogSlugs = [...new Set([...(await getBlogSlugs()), ...CODE_BLOG_POSTS.map((p) => p.slug)])]
       const dynamic = [
         ...ENCYCLOPEDIA_SLUGS.map((s) => `/encyclopedia/${s}`),
         ...blogSlugs.map((s) => `/blog/${s}`),

@@ -16,38 +16,35 @@ const PAGE_SIZE = 12
 // Netlify Function to call `/api/blog/posts`, so the first page of posts is
 // fetched directly from Neon on the server; the browser keeps using the API
 // route (needed anyway for pagination past page 1).
+// Same merge as the blog API: all published database posts (a handful of rows)
+// plus the code posts in src/content/blog-posts.mjs, newest first, then one page.
 async function fetchPostsFromDb(page: number) {
   const { getDb } = await import('@/lib/db')
+  const { codeBlogPostSummaries, mergeBlogPosts } = await import('@/content/blog-posts.mjs')
   const sql = getDb()
-  const offset = (page - 1) * PAGE_SIZE
 
   const rows = await sql`
     SELECT id, slug, title, excerpt, cover_image, author_name, tags, read_time, published_at
     FROM blog_posts
     WHERE is_published = true
-    ORDER BY published_at DESC
-    LIMIT ${PAGE_SIZE}
-    OFFSET ${offset}
   `
-  const countRows = await sql`
-    SELECT COUNT(*)::int AS count FROM blog_posts WHERE is_published = true
-  `
-  const count = (countRows[0]?.count as number | undefined) ?? 0
+  const databasePosts = rows.map((post: any) => ({
+    id: post.id,
+    slug: post.slug,
+    title: post.title,
+    excerpt: post.excerpt,
+    coverImage: post.cover_image,
+    authorName: post.author_name,
+    tags: post.tags,
+    readTime: post.read_time,
+    publishedAt: post.published_at,
+  })) as BlogPost[]
+  const allPosts = mergeBlogPosts(databasePosts, codeBlogPostSummaries()) as BlogPost[]
 
   return {
-    posts: rows.map((post: any) => ({
-      id: post.id,
-      slug: post.slug,
-      title: post.title,
-      excerpt: post.excerpt,
-      coverImage: post.cover_image,
-      authorName: post.author_name,
-      tags: post.tags,
-      readTime: post.read_time,
-      publishedAt: post.published_at,
-    })) as BlogPost[],
+    posts: allPosts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE),
     page,
-    totalPages: Math.max(1, Math.ceil(count / PAGE_SIZE)),
+    totalPages: Math.max(1, Math.ceil(allPosts.length / PAGE_SIZE)),
   }
 }
 
