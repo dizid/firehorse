@@ -50,7 +50,7 @@ const content = `
 
 <h2>A birthday worth marking</h2>
 
-<p>Whether you put on a red vest, gather the family around a table of seaweed soup and jujubes, or just enjoy a bowl of long noodles, the idea behind this birthday is the same in every tradition: one full cycle is complete and a new one begins. It is also a good excuse to read what your sign is said to bring, on the <a href="https://wuxingzodiac.me/zodiac/fire-horse" target="_blank" rel="noopener">Fire Horse profile at Wu Xing Zodiac</a>. Happy 60th, Fire Horse.</p>
+<p>Whether you put on a red vest, gather the family around a table of seaweed soup and jujubes, or just enjoy a bowl of long noodles, the idea behind this birthday is the same in every tradition: one full cycle is complete and a new one begins. It is also a good excuse to read what your sign is said to bring, on the <a href="https://wuxingzodiac.me/zodiac/fire-horse" target="_blank" rel="noopener">Fire Horse profile at Wu Xing Zodiac</a>. If you would like something written just for you, our sister site also makes an 8-page personal reading: a PDF with your name, your element balance and a chapter on the year ahead, $9.90 by email (<a href="https://wuxingzodiac.me/reading" target="_blank" rel="noopener">see what is inside</a>). Happy 60th, Fire Horse.</p>
 `
 
 /** @type {import('../blog-posts.d.mts').CodeBlogPost} */
