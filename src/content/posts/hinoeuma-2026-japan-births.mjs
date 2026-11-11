@@ -20,7 +20,7 @@ const content = `
 
 <p>That first count includes babies born in Japan to foreign parents and Japanese babies born abroad. The narrower count, Japanese nationals living in Japan, followed on 4 November 2026. <a href="https://www.nikkei.com/article/DGXZQOUA047B20U6A101C2000000/" target="_blank" rel="noopener">According to Nikkei</a> it was <strong>320,458 births</strong> for January to June, against 319,079 a year earlier: <strong>up 0.4%</strong>, again the first first-half increase in 11 years.</p>
 
-<p>For scale: Japan's births have fallen for ten years in a row. The <a href="https://www.nippon.com/en/news/yjj2026060300610/" target="_blank" rel="noopener">2025 total was 671,236</a>, with a fertility rate of 1.14, both record lows. A Fire Horse year that starts flat to slightly up is the opposite of 1966.</p>
+<p>For scale: Japan's births have fallen for ten years in a row. The <a href="https://www.nippon.com/en/japan-data/h02802/" target="_blank" rel="noopener">2025 total was 671,236</a>, with a fertility rate of 1.14, both record lows. A Fire Horse year that starts flat to slightly up is the opposite of 1966.</p>
 
 <h2>Why no dip this time?</h2>
 
@@ -32,7 +32,7 @@ const content = `
 
 <h2>What we don't know yet</h2>
 
-<p>Half a year is not a year. The figures above cover January to June only, and the second half could still look different. For 2025, the preliminary full-year count <a href="https://www.nippon.com/en/news/yjj2026022600688" target="_blank" rel="noopener">came out on 26 February 2026</a> and the final count for Japanese nationals on 3 June, so the full answer for 2026 should arrive in the first half of 2027.</p>
+<p>Half a year is not a year. The figures above cover January to June only, and the second half could still look different. For 2025, the preliminary full-year count <a href="https://english.adnkronos.com/2026/02/26/japans-births-decline-to-record-low-for-10th-straight-year/" target="_blank" rel="noopener">came out on 26 February 2026</a> and the final count for Japanese nationals on 3 June, so the full answer for 2026 should arrive in the first half of 2027.</p>
 
 <p>There is also a calendar detail. In Japan the zodiac year follows the ordinary calendar: <a href="https://www.nippon.com/en/articles/-/19554" target="_blank" rel="noopener">Japan adopted the Gregorian calendar in 1873</a> and has celebrated New Year on 1 January since, so hinoeuma there means calendar year 2026, and the statistics line up with it neatly. In Chinese reckoning the Fire Horse year runs from Lunar New Year, 17 February 2026, to 5 February 2027, so a baby born in January 2027 is still a Fire Horse by the Chinese count (see <a href="https://wuxingzodiac.me/blog/chinese-zodiac-january-february-birthday" target="_blank" rel="noopener">why January and February birthdays are tricky</a>).</p>
 
