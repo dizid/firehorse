@@ -31,6 +31,8 @@ Do NOT use `netlify dev` — the `@netlify/vite-plugin` handles Netlify Function
 
 Blog posts live in two places: the `blog_posts` table, and code posts in `src/content/posts/*.mjs` (listed in `src/content/blog-posts.mjs`; publishing one needs no DB change). The API, both blog pages' prerender path, `vite.config.ts` (routes) and `scripts/generate-sitemap.mjs` merge them; a code post wins on a slug clash. Content is HTML with only p/h2/h3/strong/em/a/blockquote (lists and tables are unstyled); tests in `src/lib/__tests__/blog-posts.test.ts` enforce that plus links and lengths.
 
+**IndexNow** (T-0335): key file `public/b65db57c22133d54d54b80e65568ffbe.txt` (public by design). After a production deploy that adds or changes pages: `npm run indexnow -- /blog/<slug>` (only those pages) or `npm run indexnow` (every URL in the live sitemap). It refuses to submit until the key file is live.
+
 Uses `neon()` from `@neondatabase/serverless` directly.
 
 ### Database
