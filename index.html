@@ -22,13 +22,19 @@
     <meta name="twitter:description" content="Celebrate the Year of the Fire Horse. Encyclopedia, compatibility checker, zodiac tools, and more." />
     <meta name="twitter:image" content="https://firehorse.info/og-image.png" />
 
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SRT8Y06JPS"></script>
+    <!-- Google Analytics 4. The ~180 KB library loads after the page (commands wait in
+         dataLayer), so on phones it doesn't compete with the page's own CSS, fonts and JS. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-SRT8Y06JPS');
+      window.addEventListener('load', function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-SRT8Y06JPS';
+        document.head.appendChild(s);
+      });
     </script>
 
     <!-- JSON-LD Structured Data -->
