@@ -11,6 +11,7 @@ import born1966TurnSixty from './posts/born-1966-turn-60-fire-horse-year.mjs'
 import yaoyaOshichi from './posts/yaoya-oshichi-fire-horse-curse-origin.mjs'
 import koreaWhiteHorse from './posts/korea-white-horse-1990-girls.mjs'
 import fireHorseWomen1906 from './posts/fire-horse-women-of-1906.mjs'
+import fireHorseYearDates from './posts/fire-horse-year-dates-2026-2027.mjs'
 
 /** @type {import('./blog-posts.d.mts').CodeBlogPost[]} */
 export const CODE_BLOG_POSTS = [
@@ -19,6 +20,7 @@ export const CODE_BLOG_POSTS = [
   yaoyaOshichi,
   koreaWhiteHorse,
   fireHorseWomen1906,
+  fireHorseYearDates,
 ]
 
 /**
