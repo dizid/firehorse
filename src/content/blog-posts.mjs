@@ -13,6 +13,7 @@ import koreaWhiteHorse from './posts/korea-white-horse-1990-girls.mjs'
 import fireHorseWomen1906 from './posts/fire-horse-women-of-1906.mjs'
 import fireHorseYearDates from './posts/fire-horse-year-dates-2026-2027.mjs'
 import redHorseRedSheep from './posts/red-horse-red-sheep-china-fire-horse-warning.mjs'
+import fireHorseBabies1966Research from './posts/1966-fire-horse-babies-research.mjs'
 
 /** @type {import('./blog-posts.d.mts').CodeBlogPost[]} */
 export const CODE_BLOG_POSTS = [
@@ -23,6 +24,7 @@ export const CODE_BLOG_POSTS = [
   fireHorseWomen1906,
   fireHorseYearDates,
   redHorseRedSheep,
+  fireHorseBabies1966Research,
 ]
 
 /**
